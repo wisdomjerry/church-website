@@ -1,65 +1,88 @@
-import Image from "next/image";
+import EventCard from "./components/EventCard";
+
+const events = [
+  {
+    title: "Sunday Service",
+    date: "Every Sunday - 10:00 AM",
+    location: "Main Sanctuary",
+    description: "Join us for our weekly worship and sermon. All are welcome!",
+  },
+  {
+    title: "Youth Fellowship",
+    date: "Friday - 6:00 PM",
+    location: "Youth Hall",
+    description: "A time for young members to meet, pray, and build community.",
+  },
+  {
+    title: "Community Outreach",
+    date: "1st Saturday of every month",
+    location: "Church Grounds",
+    description:
+      "Helping our community through volunteering and support programs.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+    <main className="min-h-screen bg-gradient-to-b from-purple-700 to-purple-900 text-white flex flex-col">
+      {/* Hero Section */}
+      <section className="flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 h-[80vh]">
+        <h1 className="text-5xl md:text-6xl font-bold mb-6">
+          Welcome to Faith Harvest Church
+        </h1>
+        <p className="text-xl md:text-2xl mb-8 max-w-2xl">
+          Join us in worship, fellowship, and growing in faith. Everyone is
+          welcome!
+        </p>
+        <div className="space-x-4">
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#about"
+            className="px-6 py-3 bg-yellow-400 text-purple-900 font-semibold rounded hover:bg-yellow-300 transition"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+            Learn More
           </a>
           <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/8 px-5 transition-colors hover:border-transparent hover:bg-black/4 dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
+            className="px-6 py-3 border border-white rounded hover:bg-white hover:text-purple-900 transition"
           >
-            Documentation
+            Contact Us
           </a>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Optional placeholder sections */}
+      <section
+        id="about"
+        className="bg-white text-purple-900 py-20 px-4 text-center"
+      >
+        <h2 className="text-4xl font-bold mb-4">About Our Church</h2>
+        <p className="max-w-3xl mx-auto text-lg">
+          Faith Harvest Church is dedicated to spreading love, hope, and faith
+          to all. Join us for weekly services and community events.
+        </p>
+      </section>
+
+      <section
+        id="events"
+        className="bg-purple-800 text-white py-20 px-4 text-center"
+      >
+        <h2 className="text-4xl font-bold mb-4">Upcoming Events</h2>
+        <p className="max-w-3xl mx-auto text-lg">
+          Stay tuned for our weekly sermons, community outreach programs, and
+          youth activities.
+        </p>
+      </section>
+      {/* Events Section */}
+      <section id="events" className="bg-purple-800 text-white py-20 px-4">
+        <h2 className="text-4xl font-bold text-center mb-12">
+          Upcoming Events
+        </h2>
+        <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
+          {events.map((event, index) => (
+            <EventCard key={index} {...event} />
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
