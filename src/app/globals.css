@@ -1,7 +1,206 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 body {
   font-family: system-ui, sans-serif;
+}
+
+@keyframes kenburns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.ministry-slider .swiper-pagination-bullet-active {
+  background: #b91c1c !important; /* Tailwind red-700 */
+}
+
+.animate-ken-burns {
+  animation: kenburns 10s ease-out forwards;
+}
+
+@keyframes heart-glow {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0px rgba(185, 28, 28, 0.7);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(185, 28, 28, 0.9);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0px rgba(185, 28, 28, 0.7);
+  }
+}
+
+.animate-heart-glow {
+  animation: heart-glow 2s infinite ease-in-out;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fadeUp {
+  animation: fadeUp 1s ease forwards;
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  /* Optional: adds a slight tilt forward during the flip */
+  .rotate-x-6 {
+    transform: rotateX(6deg);
+  }
+}
+
+/* Stops the floating bounce when the user interacts with the card */
+.group:hover .animate-float {
+  animation-play-state: paused;
+}
+
+@layer utilities {
+  .footer-link-star::before {
+    content: "★";
+    color: #b91c1c; /* red-700 */
+    font-size: 10px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+}
+
+@layer utilities {
+  .vertical-text {
+    /* Using vertical-rl allows for better natural alignment of the icon + text */
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    display: flex;
+    align-items: center;
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Staggered delay for grid items (like your 3 Event Cards) */
+.delay-1 {
+  animation-delay: 0.1s;
+}
+.delay-2 {
+  animation-delay: 0.3s;
+}
+.delay-3 {
+  animation-delay: 0.5s;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.animate-ripple {
+  animation: ripple 2s infinite;
+}
+
+@layer utilities {
+  /* Slow zoom for the background image */
+  @keyframes slow-zoom {
+    from {
+      transform: scale(1.1);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  /* Fade up for the text */
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Gentle bounce for the badge */
+  @keyframes bounce-slow {
+    0%,
+    100% {
+      transform: translate(-50%, 0);
+    }
+    50% {
+      transform: translate(-50%, -10px);
+    }
+  }
+
+  .animate-slow-zoom {
+    animation: slow-zoom 8s infinite alternate ease-in-out;
+  }
+
+  .animate-fade-up {
+    animation: fade-up 1.2s ease-out forwards;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 3s infinite ease-in-out;
+  }
 }

@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 export const metadata = {
-  title: "Faith Harvest Church",
+  title: "Christain Faith Harvest Church",
   description: "Church website built with Next.js and Tailwind CSS",
 };
 
