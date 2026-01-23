@@ -87,7 +87,7 @@ export default function Footer() {
             <div className="flex gap-4 group cursor-pointer">
               <div className="w-16 h-16 bg-gray-800 shrink-0 overflow-hidden">
                 <img
-                  src="/church-interior.jpg"
+                  src="/church-interior.png"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
@@ -103,7 +103,7 @@ export default function Footer() {
             <div className="flex gap-4 group cursor-pointer">
               <div className="w-16 h-16 bg-gray-800 shrink-0 overflow-hidden">
                 <img
-                  src="/music.jpg"
+                  src="/music.png"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>

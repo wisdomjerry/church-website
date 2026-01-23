@@ -7,6 +7,7 @@ import {
   Heart,
   PlayCircle,
 } from "lucide-react";
+import Link from "next/link";
 
 const slides = [
   {
@@ -91,12 +92,16 @@ export default function HeroSlider() {
         </p>
 
         <div className={`flex justify-center gap-4 delay-500 transition-all duration-700 ${isAnimating ? "opacity-0 translate-y-5" : "opacity-100 translate-y-0"}`}>
+          <Link href ="/about">
           <button className="bg-orange-600 rounded-sm hover:bg-white hover:text-orange-600 text-white px-10 py-5 text-[17px] font-black tracking-[0.2em] transition-all">
             Learn More
           </button>
-          <button className="border-2 border-white/30 rounded-sm hover:bg-orange-600 hover:border-orange-600 text-white px-10 py-5 text-[17px] font-black tracking-[0.2em] transition-all">
-            Our Ministries
-          </button>
+          </Link>
+          <Link href="/ministries">
+            <button className="border-2 border-white/30 rounded-sm hover:bg-orange-600 hover:border-orange-600 text-white px-10 py-5 text-[17px] font-black tracking-[0.2em] transition-all">
+              Our Ministries
+            </button>
+          </Link>
         </div>
       </div>
 

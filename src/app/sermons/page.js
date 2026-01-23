@@ -88,8 +88,8 @@ export default function SermonsPage() {
   return (
     <main className="bg-[#F9F6F0] min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center justify-center bg-[#0a1227]">
-        <div className="absolute inset-0 opacity-40 bg-[url('/sermon-hero.jpg')] bg-cover bg-center"></div>
+      <section className="relative h-[65vh] flex items-center justify-center bg-[#0a1227]">
+        <div className="absolute inset-0 opacity-40 bg-[url('/sermon-hero.png')] bg-cover bg-center"></div>
         <div className="relative z-10 text-center text-white px-4">
           <span className="text-red-700 font-bold uppercase tracking-[0.3em] text-[10px] mb-4 block">
             Watch & Listen
@@ -108,7 +108,7 @@ export default function SermonsPage() {
         <div className="bg-white shadow-2xl flex flex-col lg:flex-row overflow-hidden">
           <div className="lg:w-2/3 relative group cursor-pointer">
             <img
-              src="/latest-sermon.jpg"
+              src="/latest-sermon.png"
               className="w-full h-[450px] object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-all">

@@ -15,16 +15,16 @@ export default function EventSlider({ events }) {
   }, [events.length]);
 
   return (
-    <div className="max-w-6xl mx-auto overflow-hidden px-4">
+    <div className="max-w-6xl  mx-auto overflow-hidden px-4">
       {/* The Sliding Row */}
       <div
-        className="flex transition-transform duration-700 ease-in-out gap-6"
+        className="flex rounded-xl transition-transform duration-700 ease-in-out gap-6"
         style={{ transform: `translateX(-${currentIndex * (100 / 3)}%)` }}
       >
         {events.map((event, index) => (
           <div
             key={index}
-            className="w-full md:w-[calc(33.333%-16px)] shrink-0"
+            className="w-full  md:w-[calc(33.333%-16px)] shrink-0"
           >
             <Reveal
               delay={

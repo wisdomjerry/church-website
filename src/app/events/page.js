@@ -80,17 +80,23 @@ export default function EventsPage() {
 
   return (
     <main className="bg-[#F9F6F0] min-h-screen">
-      {/* Hero Section - Fixed height and relative positioning to prevent overlap */}
-      <section
-        className="relative h-[65vh] w-full flex items-center justify-center bg-cover bg-center transition-transform duration-[10000ms] ease-out scale-110 animate-slow-zoom"
-        style={{
-          backgroundImage: "url('/church-events.png')",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        {/* Dark Overlay - Matches Zegen template opacity */}
-        <div className="absolute inset-0 bg-[#0a1227]/50"></div>
+      {/* Hero Section */}
+      <section className="relative h-[60vh] flex items-center justify-center">
+        {/* 1. BACKGROUND LAYER: Isolates the zoom/scale effect */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div
+            className="absolute inset-0 bg-cover bg-center transition-transform duration-[10000ms] ease-out scale-110 animate-slow-zoom"
+            style={{
+              backgroundImage: "url('/church-events.png')",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+            {/* Dark Overlay - Inside the zoom layer to keep it consistent */}
+            <div className="absolute inset-0 bg-[#0a1227]/50"></div>
+          </div>
+        </div>
 
+        {/* 2. CONTENT LAYER: Fixed text */}
         <div className="relative z-10 text-center text-white pt-10 animate-fade-up">
           <h1 className="text-5xl md:text-7xl font-serif font-medium tracking-tight mb-6 drop-shadow-2xl">
             Our Events
@@ -108,7 +114,7 @@ export default function EventsPage() {
           </nav>
         </div>
 
-        {/* Hero Droplet Badge - Point Down */}
+        {/* 3. BADGE LAYER: Stays outside the overflow-hidden layer so it remains visible */}
         <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 z-30 animate-bounce-slow">
           <div className="relative w-20 h-20 bg-red-700 rounded-full rounded-br-none rotate-[225deg] border-[6px] border-white shadow-xl flex items-center justify-center">
             <div className="-rotate-[225deg] relative w-6 h-9">
@@ -165,7 +171,7 @@ export default function EventsPage() {
                   <div className="pt-2">
                     <a
                       href="#"
-                      className="text-[#B38B59] font-bold text-[11px] uppercase tracking-[0.2em] hover:underline"
+                      className="text-[#B38B59] rounded-lg font-bold text-[11px] uppercase tracking-[0.2em] hover:underline"
                     >
                       Learn More
                     </a>
@@ -180,7 +186,7 @@ export default function EventsPage() {
       {/* Join Community Parallax */}
       <section
         className="relative h-[80vh] flex items-center justify-center bg-fixed bg-cover bg-center overflow-hidden"
-        style={{ backgroundImage: "url('/community-bg.jpg')" }}
+        style={{ backgroundImage: "url('/community-bg.png')" }}
       >
         <div className="absolute inset-0 bg-[#0a1227]/40"></div>
         <div className="relative z-10 w-[90%] max-w-5xl border border-white/30 px-6 py-16 md:py-24 text-center text-white backdrop-blur-[2px]">
@@ -194,7 +200,7 @@ export default function EventsPage() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <button className="bg-[#B38B59] hover:bg-[#8e6e46] text-white px-10 py-4 text-[11px] font-bold uppercase tracking-[0.2em] transition-all duration-300 shadow-xl">
+          <button className="bg-[#B38B59] hover:bg-[#8e6e46] text-white rounded-lg px-10 py-4 text-[11px] font-bold uppercase tracking-[0.2em] transition-all duration-300 shadow-xl">
             Get Started
           </button>
         </div>
@@ -214,7 +220,7 @@ export default function EventsPage() {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
             <div className="pt-4">
-              <button className="bg-[#8B5A2B] text-white px-10 py-4 text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-[#724a23] transition-colors">
+              <button className="bg-[#8B5A2B] text-white px-10 rounded-lg py-4 text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-[#724a23] transition-colors">
                 See More
               </button>
             </div>

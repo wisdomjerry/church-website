@@ -4,23 +4,29 @@ import { ChevronRight, Mail, Phone, MapPin, Clock } from "lucide-react";
 export default function ContactPage() {
   return (
     <main className="bg-[#F9F6F0] min-h-screen">
-      {/* Hero Section - Maintaining consistency with your Events page */}
-      <section
-        className="relative h-[65vh] w-full flex items-center justify-center bg-cover bg-center transition-transform duration-[10000ms] ease-out scale-110 animate-slow-zoom"
-        style={{
-          backgroundImage: "url('/church-contact.png')",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        {/* Dark Overlay - Matches Zegen template opacity */}
-        <div className="absolute inset-0 bg-[#0a1227]/80"></div>
+      {/* Hero Section - Contact Page */}
+      <section className="relative h-[65vh] w-full flex items-center justify-center">
+        {/* 1. ANIMATION LAYER: Prevents horizontal scroll by clipping the 110% scale */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div
+            className="absolute inset-0 bg-cover bg-center transition-transform duration-[10000ms] ease-out scale-110 animate-slow-zoom"
+            style={{
+              backgroundImage: "url('/church-contact.png')",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+            {/* Dark Overlay - Inside the zoom layer */}
+            <div className="absolute inset-0 bg-[#0a1227]/80"></div>
+          </div>
+        </div>
 
+        {/* 2. CONTENT LAYER */}
         <div className="relative z-10 text-center text-gray-400 pt-10 animate-fade-up">
           <h1 className="text-5xl md:text-6xl font-serif font-medium tracking-tight mb-6 drop-shadow-2xl">
             Contact Us
           </h1>
 
-          <nav className="flex items-center justify-center gap-3 text-[12px] font-bold  tracking-[0.2em]">
+          <nav className="flex items-center justify-center gap-3 text-[12px] font-bold tracking-[0.2em]">
             <span className="text-red-700 hover:text-red-600 transition-colors cursor-pointer">
               Home
             </span>
@@ -31,7 +37,7 @@ export default function ContactPage() {
           </nav>
         </div>
 
-        {/* Hero Droplet Badge */}
+        {/* 3. BADGE LAYER: Positioned outside the animation crop */}
         <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 z-30 animate-bounce-slow">
           <div className="relative w-20 h-20 bg-red-700 rounded-full rounded-br-none rotate-[225deg] border-[6px] border-white shadow-xl flex items-center justify-center">
             <div className="-rotate-[225deg] relative w-6 h-9">

@@ -40,7 +40,7 @@ export default function FeatureCards() {
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Container for the cards */}
-      <div className="overflow-hidden py-4">
+      <div className="overflow-hidden rounded-xl py-4">
         <div 
           className="flex transition-transform duration-700 ease-in-out"
           style={{ transform: `translateX(-${cardPage * (typeof window !== 'undefined' && window.innerWidth < 768 ? 100 : 50)}%)` }}

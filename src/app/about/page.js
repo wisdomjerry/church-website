@@ -21,26 +21,31 @@ import "swiper/css/pagination";
 
 export default function AboutPage() {
   const team = [
-    { name: "Sophia Jones", role: "Senior Pastor", img: "/hero-2.jpg" },
-    { name: "Johnny", role: "Christian Speaker", img: "/hero-1.jpg" },
-    { name: "Jackson", role: "Protestant Clergy", img: "/hero-3.jpg" },
-    { name: "Sarah Miller", role: "Worship Leader", img: "/hero-2.jpg" },
-    { name: "David Chen", role: "Youth Pastor", img: "/hero-1.jpg" },
-    { name: "Emma Wilson", role: "Community Outreach", img: "/hero-3.jpg" },
+    { name: "Sophia Jones", role: "Senior Pastor", img: "/Sophia.png" },
+    { name: "Johnny", role: "Christian Speaker", img: "/Johnny.png" },
+    { name: "Jackson", role: "Protestant Clergy", img: "/Jackson.png" },
+    { name: "Sarah Miller", role: "Worship Leader", img: "/Sarah.png" },
+    { name: "David Chen", role: "Youth Pastor", img: "/David.png" },
+    { name: "Emma Wilson", role: "Community Outreach", img: "/Emma.png" },
   ];
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white overflow-x-hidden">
       {/* Hero Banner */}
       <section className="relative h-[65vh] flex items-center justify-center">
-        <div
-          className="absolute inset-0  bg-cover bg-center transition-transform duration-[10000ms] ease-out scale-110 animate-slow-zoom"
-          style={{ backgroundImage: "url('/church-about.png')" }}
-        >
-          <div className="absolute inset-0 bg-[#0a1227]/50"></div>
+        {/* 1. BACKGROUND LAYER: This handles the zoom and hides the overflow of the image */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div
+            className="absolute inset-0 bg-cover bg-center transition-transform duration-[10000ms] ease-out scale-110 animate-slow-zoom"
+            style={{ backgroundImage: "url('/church-about.png')" }}
+          >
+            <div className="absolute inset-0 bg-[#0a1227]/50"></div>
+          </div>
         </div>
+
+        {/* 2. CONTENT LAYER: Centered text */}
         <div className="relative z-10 text-center text-white px-4 animate-fade-up">
-          <h1 className="text-4xl md:text-5xl font-serif font-medium tracking-tight mb-6 drop-shadow-2xl ">
+          <h1 className="text-4xl md:text-5xl font-serif font-medium tracking-tight mb-6 drop-shadow-2xl">
             About Us
           </h1>
           <div className="flex items-center justify-center gap-2 text-[11px] font-black uppercase tracking-[0.3em] mb-4">
@@ -54,7 +59,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Hero Droplet Badge - Point Down */}
+        {/* 3. BADGE LAYER: Now sits safely "outside" the background crop but "inside" the section */}
         <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 z-30 animate-bounce-slow">
           <div className="relative w-20 h-20 bg-red-700 rounded-full rounded-br-none rotate-[225deg] border-[6px] border-white shadow-xl flex items-center justify-center">
             <div className="-rotate-[225deg] relative w-6 h-9">
@@ -72,7 +77,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="absolute -bottom-6 -left-6 w-full h-full border-[15px] border-gray-100 -z-10"></div>
               <img
-                src="/church-interior.jpg"
+                src="/church-interior.png"
                 alt="Church interior"
                 className="w-full h-[500px] object-cover rounded-sm shadow-lg"
               />
@@ -122,12 +127,37 @@ export default function AboutPage() {
       </section>
 
       {/* Feature Section - Zegen "Small Steps" Style */}
-      <section className="py-24 bg-[#f3e8d7] px-6">
+      <section className="bg-[#fffbf0] px-6 relative pt-24">
         <div className="max-w-6xl mx-auto">
-          {/* Top Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-            {/* Right Side: Content and Icons */}
-            <div className="space-y-8">
+          {/* 1. Added relative to the grid and min-h-[600px] to maintain text area space */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end relative min-h-[600px]">
+            {/* LEFT SIDE: Portrait Image container changed to absolute */}
+            <div className="hidden lg:block lg:col-span-5 relative h-full">
+              <div className="absolute bottom-0 left-0 w-full">
+                <Reveal>
+                  <div className="relative">
+                    <img
+                      src="/Pastor-1.png"
+                      alt="Pastor"
+                      /* 2. Added object-bottom and a specific height like 90vh or 100vh */
+                      className="w-full max-w-[450px] h-[90vh] object-contain object-bottom block"
+                    />
+                  </div>
+                </Reveal>
+              </div>
+            </div>
+
+            {/* Mobile version of image (stays in flow) */}
+            <div className="lg:hidden flex justify-center">
+              <img
+                src="/Pastor-1.png"
+                alt="Pastor"
+                className="w-full max-w-[350px] h-auto"
+              />
+            </div>
+
+            {/* RIGHT SIDE: Content and Icons */}
+            <div className="lg:col-span-7 pb-24 space-y-8 relative z-10">
               <Reveal delay="delay-1">
                 <div>
                   <span className="text-red-700 font-bold uppercase tracking-[0.3em] text-[11px]">
@@ -140,10 +170,9 @@ export default function AboutPage() {
                     <div className="w-8 h-[2px] bg-red-700"></div>
                     <div className="w-3 h-[2px] bg-red-700"></div>
                   </div>
-                  <p className="text-gray-500 text-sm leading-relaxed">
-                    We believe that every soul matters. Our church is dedicated
-                    to providing a sanctuary where you can grow in faith and
-                    find your divine purpose.
+                  <p className="text-gray-500 text-sm leading-relaxed max-w-xl">
+                    Lorem ipsum dolor sit amet, consectetur adipisi cing elit
+                    dolo rem consequ untur natus laudantium commodie adipis.
                   </p>
                 </div>
               </Reveal>
@@ -152,88 +181,57 @@ export default function AboutPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
                 <Reveal delay="delay-2">
                   <div className="space-y-4">
-                    <div className="w-12 h-12 bg-red-700 rounded-full flex items-center justify-center text-white shadow-lg">
+                    <div className="w-12 h-12 bg-red-700 rounded-full flex items-center justify-center text-white">
                       <Heart size={20} fill="currentColor" />
                     </div>
                     <h4 className="font-black text-gray-900 uppercase text-lg tracking-wide">
                       Place Of Heaven
                     </h4>
                     <p className="text-gray-500 text-xs leading-relaxed">
-                      Experience the peace and presence of God in our worship
-                      gatherings.
+                      Lorem ipsum dolor, consectetur adipiscing elit, sed do
+                      tempor incididunt labore.
                     </p>
                   </div>
                 </Reveal>
 
                 <Reveal delay="delay-3">
                   <div className="space-y-4">
-                    <div className="w-12 h-12 bg-red-700 rounded-full flex items-center justify-center text-white shadow-lg">
+                    <div className="w-12 h-12 bg-red-700 rounded-full flex items-center justify-center text-white">
                       <BookOpen size={20} />
                     </div>
                     <h4 className="font-black text-gray-900 uppercase text-lg tracking-wide">
                       Study Bible
                     </h4>
                     <p className="text-gray-500 text-xs leading-relaxed">
-                      Deepen your understanding of the Word through our weekly
-                      study groups.
+                      Lorem ipsum dolor, consectetur adipiscing elit, sed do
+                      tempor incididunt labore.
                     </p>
                   </div>
                 </Reveal>
               </div>
             </div>
-
-            {/* Left Side: Large Portrait Image */}
-            <Reveal>
-              <div className="relative flex justify-center lg:justify-start">
-                <div className="max-w-[450px] w-full relative">
-                  <img
-                    src="/hero-1.jpg"
-                    alt="Pastor"
-                    className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700 rounded-sm shadow-2xl"
-                  />
-                </div>
-              </div>
-            </Reveal>
           </div>
 
-          {/* Bottom Bar: Video CTA (Nested inside same section) */}
-          <div className="relative overflow-hidden rounded-lg bg-[#0a1227] py-5 bottom-9 px-5 md:px-16 shadow-2xl">
-            {/* Faded Background Pattern */}
+          {/* BOTTOM BAR: Overlapping the bottom of the image */}
+          <div className="relative z-30 -mt-10 lg:-mt-16 overflow-hidden rounded-lg bg-[#0a1227] py-8 px-5 md:px-16 shadow-2xl">
             <div
               className="absolute inset-0 opacity-10 bg-cover bg-center grayscale"
               style={{ backgroundImage: "url('/church-interior.jpg')" }}
             ></div>
 
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
-              {/* Pulsing Play Button Container */}
               <div className="relative flex items-center justify-center">
-                {/* Ripple Effect Circles */}
                 <div className="absolute w-12 h-12 bg-red-700 rounded-full animate-ping opacity-40"></div>
-                <div className="absolute w-20 h-20 bg-red-700 rounded-full animate-ping opacity-20 [animation-duration:2s]"></div>
-                <div className="absolute w-28 h-28 bg-red-700 rounded-full animate-ping opacity-10 [animation-duration:3s]"></div>
-
-                <button className="relative w-10 h-10 bg-red-700 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-700 transition-all duration-500 shadow-2xl">
-                  <Play size={28} fill="currentColor" className="ml-1" />
+                <button className="relative w-14 h-14 bg-red-700 rounded-full flex items-center justify-center text-white hover:scale-110 transition-all duration-500">
+                  <Play size={24} fill="currentColor" className="ml-1" />
                 </button>
               </div>
 
-              {/* Quote Text */}
               <div className="flex-1 text-center md:text-left">
-                <blockquote className="text-white text-xl md:text-2xl font-light italic  leading-tight tracking-tight">
-                  "Pray! And listen to God! You can do this alone, but{" "}
-                  <br className="hidden lg:block" /> find somebody to do it with
-                  you"
+                <blockquote className="text-white text-lg md:text-xl font-bold leading-tight">
+                  “Pray! And listen to God! You can do this alone, but find
+                  somebody to do it with you”
                 </blockquote>
-                <p className="text-red-600 text-[11px] font-light tracking-[0.2em] mt-3">
-                  Real Story Cross Journey from Anna Hampton
-                </p>
-              </div>
-
-              {/* Action Button */}
-              <div className="flex-shrink-0">
-                <button className="border-2 border-red-700 text-white px-10 py-4 text-[11px] font-black rounded-lg tracking-widest hover:bg-red-700 transition-all">
-                  Donate Online
-                </button>
               </div>
             </div>
           </div>
@@ -241,7 +239,7 @@ export default function AboutPage() {
       </section>
 
       {/* 2. Swiper Team Section */}
-      <section className="py-24 bg-[#fffbf0] px-6">
+      <section className="py-24  bg-[#fffbf0] px-6">
         <div className="max-w-6xl mx-auto text-center">
           <span className="text-red-700 font-bold uppercase tracking-[0.3em] text-[11px]">
             Our Team

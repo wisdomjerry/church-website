@@ -16,7 +16,7 @@ const ministries = [
     title: "Children's Ministry",
     slug: "children",
     icon: <Baby size={30} />,
-    image: "/ministry-1.jpg",
+    image: "/ministry-1.png",
     excerpt:
       "Nurturing the next generation in a fun, safe, and Christ-centered environment.",
   },
@@ -24,7 +24,7 @@ const ministries = [
     title: "Worship & Arts",
     slug: "worship",
     icon: <Music size={30} />,
-    image: "/ministry-2.jpg",
+    image: "/ministry-2.png",
     excerpt:
       "Leading the congregation into God's presence through music and creative expression.",
   },
@@ -32,7 +32,7 @@ const ministries = [
     title: "Youth Fellowship",
     slug: "youth",
     icon: <Users size={30} />,
-    image: "/ministry-3.jpg",
+    image: "/ministry-3.png",
     excerpt:
       "Empowering young people to live boldly for Christ in today's world.",
   },
@@ -40,7 +40,7 @@ const ministries = [
     title: "Global Missions",
     slug: "missions",
     icon: <Globe size={30} />,
-    image: "/ministry-4.jpg",
+    image: "/ministry-4.png",
     excerpt:
       "Taking the gospel beyond our walls through local service and global outreach.",
   },
@@ -48,7 +48,7 @@ const ministries = [
     title: "Family Ministry",
     slug: "family",
     icon: <Heart size={30} />,
-    image: "/ministry-family.jpg",
+    image: "/ministry-family.png",
     excerpt:
       "Building strong homes through fellowship, counseling, and spiritual support.",
   },
@@ -80,9 +80,9 @@ export default function MinistriesPage() {
         <div className="absolute inset-0 overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center animate-slow-zoom"
-            style={{ backgroundImage: "url('/ministry-hero.jpg')" }}
+            style={{ backgroundImage: "url('/ministry-hero.png')" }}
           ></div>
-          <div className="absolute inset-0 bg-[#0a1227]/75"></div>
+          <div className="absolute inset-0 bg-[#0a1227]/50"></div>
         </div>
         <div className="relative z-10 text-center text-white animate-fade-up px-4">
           <h1 className="text-5xl md:text-7xl font-serif font-medium mb-6 tracking-tight">

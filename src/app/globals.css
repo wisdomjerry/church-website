@@ -204,3 +204,42 @@ body {
     animation: bounce-slow 3s infinite ease-in-out;
   }
 }
+
+/* Blog Slider Droplet Pagination */
+.blog-pagination .swiper-pagination-bullet {
+  width: 14px !important;
+  height: 14px !important;
+  background: transparent !important;
+  border: 2px solid #d1d5db !important; /* Gray-300 */
+  opacity: 1 !important;
+  border-radius: 50% !important;
+  border-bottom-right-radius: 0 !important; /* Makes it a droplet */
+  transform: rotate(225deg) !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 6px !important;
+}
+
+.blog-pagination .swiper-pagination-bullet-active {
+  background: #b91c1c !important; /* Red-700 */
+  border-color: #b91c1c !important;
+  transform: rotate(225deg) scale(1.2) !important;
+}
+
+/* Optional: Slight hover effect for the dots */
+.blog-pagination .swiper-pagination-bullet:hover {
+  border-color: #b91c1c !important;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+

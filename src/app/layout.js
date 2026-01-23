@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 export const metadata = {
   title: "Christain Faith Harvest Church",
@@ -12,7 +13,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="antialiased">
         <Navbar />
-        <main>{children}</main>
+        <main>
+          {children}
+          {/* This will now appear on every page of your site */}
+          <ScrollToTop />
+        </main>
         <Footer />
       </body>
     </html>

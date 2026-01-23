@@ -11,6 +11,7 @@ import EventSlider from "./components/EventSlider";
 import HeroSlider from "./components/HeroSlider";
 import FeatureCards from "./components/FeatureCards";
 import Reveal from "./components/Reveal";
+import LatestPosts from "./components/LatestPosts";
 import {
   Heart,
   BookOpen,
@@ -24,37 +25,37 @@ const events = [
     title: "Spiritually Reborn As God’s Children",
     date: "Sep 20",
     time: "8.00 pm",
-    image: "/church-interior.jpg",
+    image: "/Reborn.png",
   },
   {
     title: "Zegen Church Jesus Hymn Song",
     date: "Oct 27",
     time: "12.00 pm",
-    image: "/music.jpg",
+    image: "/music.png",
   },
   {
     title: "Faith Harvest Community Prayer",
     date: "Nov 05",
     time: "10.00 am",
-    image: "/global.jpg",
+    image: "/global.png",
   },
   {
     title: "Biblical Family Values Workshop",
     date: "Dec 12",
     time: "09.00 am",
-    image: "/prison.jpg",
+    image: "/Biblical.png",
   },
   {
     title: "Youth Night: Light of the World",
     date: "Dec 24",
     time: "07.00 pm",
-    image: "/church-interior.jpg",
+    image: "/church-interior.png",
   },
   {
     title: "New Year Praise & Testimony",
     date: "Jan 01",
     time: "11.00 pm",
-    image: "/music.jpg",
+    image: "/music.png",
   },
 ];
 
@@ -300,6 +301,27 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Events Section */}
+      <section id="events" className="bg-[#f8f9fa] py-24 px-4 overflow-hidden">
+        <Reveal>
+          <div className="max-w-6xl mx-auto text-center mb-16">
+            <span className="text-red-700 font-bold uppercase tracking-[0.3em] text-[10px]">
+              Join Us
+            </span>
+            <h2 className="text-4xl font-black mt-2 uppercase text-gray-900">
+              Upcoming Events
+            </h2>
+            <div className="flex justify-center gap-1 mt-4">
+              <div className="w-8 h-1 bg-red-700"></div>
+              <div className="w-2 h-1 bg-red-700"></div>
+            </div>
+          </div>
+        </Reveal>
+        <Reveal delay="delay-2">
+          <EventSlider events={events} />
+        </Reveal>
+      </section>
+
       {/* Contact Section */}
       <Reveal>
         <section className="relative bg-[#0f172a] mt-20 pb-24">
@@ -366,26 +388,8 @@ export default function Home() {
         </section>
       </Reveal>
 
-      {/* Events Section */}
-      <section id="events" className="bg-[#f8f9fa] py-24 px-4 overflow-hidden">
-        <Reveal>
-          <div className="max-w-6xl mx-auto text-center mb-16">
-            <span className="text-red-700 font-bold uppercase tracking-[0.3em] text-[10px]">
-              Join Us
-            </span>
-            <h2 className="text-4xl font-black mt-2 uppercase text-gray-900">
-              Upcoming Events
-            </h2>
-            <div className="flex justify-center gap-1 mt-4">
-              <div className="w-8 h-1 bg-red-700"></div>
-              <div className="w-2 h-1 bg-red-700"></div>
-            </div>
-          </div>
-        </Reveal>
-        <Reveal delay="delay-2">
-          <EventSlider events={events} />
-        </Reveal>
-      </section>
+      {/* NEW: Latest Posts Section (Inserted Here) */}
+      <LatestPosts />
     </main>
   );
 }
