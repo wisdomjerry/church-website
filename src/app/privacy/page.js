@@ -2,7 +2,7 @@ import FadeUp from "../components/FadeUp";
 
 export default function PrivacyPage() {
   return (
-    <main className="pt-32 pb-24 px-6 bg-gray-50">
+    <main className="pt-32 pb-24 px-6 bg-[#fffbf0]">
       <div className="max-w-3xl mx-auto bg-white p-10 md:p-16 shadow-sm border border-gray-100">
         <FadeUp>
           <span className="text-red-700 font-black uppercase text-[10px] tracking-[0.3em]">Legal</span>
