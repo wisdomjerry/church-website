@@ -103,10 +103,10 @@ export default function Navbar() {
             </div>
 
             <div
-              className={`text-lg md:text-2xl font-black tracking-tighter transition-colors duration-300 ${isSticky || isOpen ? "text-gray-900" : "text-white"}`}
+              className={`text-[13px] md:text-[16px] font-black tracking-tighter leading-tight transition-colors duration-300 ${isSticky || isOpen ? "text-gray-900" : "text-white"}`}
             >
-              <span className="text-red-700">CHRISTIAN</span> FAITH <br />
-              <span className="text-red-700">HARVEST</span> CHURCH
+              <span className="text-red-700">CHRISTIAN</span> FAITH HARVEST
+              CHURCH
             </div>
           </Link>
 
