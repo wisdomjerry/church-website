@@ -6,10 +6,6 @@ import ScrollToTop from "./components/ScrollToTop";
 export const metadata = {
   title: "Christain Faith Harvest Church",
   description: "Church website built with Next.js and Tailwind CSS",
-  // PASTE YOUR KEY HERE:
-  verification: {
-    google: "ybhFewJYBuscGb1R-Tr_DH6VCSPeqU4w-q_2EyYJEKg",
-  },
 };
 
 export default function RootLayout({ children }) {
