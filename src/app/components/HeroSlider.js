@@ -21,7 +21,7 @@ const slides = [
     subtitle:
       "Join us every Sunday as we lift our hearts in praise and worship.",
     image:
-      "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769169917/hero-2_iylfab.jpg",
+      "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769276095/hero-2_iylfab.png",
     highlight: ["Powerful", "Worship"],
   },
   {
