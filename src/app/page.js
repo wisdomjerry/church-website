@@ -282,7 +282,7 @@ export default function Home() {
               {ministries.map((m, i) => (
                 <SwiperSlide key={i}>
                   <FadeUp delay={`delay-${i}`}>
-                    <div className="group bg-[#fcfcfc] border border-gray-100 rounded-sm overflow-hidden flex flex-col h-[500px] transition-all duration-500 hover:shadow-2xl relative">
+                    <div className="group bg-[#fcfcfc] border border-gray-100 rounded-xl overflow-hidden flex flex-col h-[500px] transition-all duration-500 hover:shadow-2xl relative">
                       <div className="h-60 overflow-hidden">
                         <img
                           src={m.img}
@@ -345,7 +345,7 @@ export default function Home() {
           </div>
           <div className="max-w-5xl mx-auto px-6 -mt-48 relative z-20">
             <FadeUp>
-              <div className="bg-white rounded-sm shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
+              <div className="bg-white rounded-xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
                 <div className="p-10 md:p-14 space-y-6">
                   <div className="space-y-4">
                     <input
