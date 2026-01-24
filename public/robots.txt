@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://christainfaithharvestchurch.vercel.app/sitemap.xml
