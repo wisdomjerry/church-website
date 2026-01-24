@@ -40,7 +40,7 @@ export default function TermsOfService() {
 
             <div className="pt-8 border-t border-gray-100">
               <p className="text-sm font-bold text-gray-400">
-                Contact us at <span className="text-red-700">info@faithharvest.org</span> if you have questions regarding these terms.
+                Contact us at <span className="text-red-700">christainfaithharvestchurch@gmail.com</span> if you have questions regarding these terms.
               </p>
             </div>
           </div>
