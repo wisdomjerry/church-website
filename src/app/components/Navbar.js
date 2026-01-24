@@ -56,20 +56,20 @@ export default function Navbar() {
         <div className="hidden lg:flex bg-black/20 backdrop-blur-md text-white py-2 px-6 justify-between items-center border-b border-white/10 transition-all">
           <div className="flex gap-4 text-[10px] font-bold tracking-widest uppercase">
             <span className="flex items-center gap-1">
-              <Phone size={12} className="text-red-700" /> +1 234 567 890
+              <Phone size={17} className="text-red-700" /> +1 234 567 890
             </span>
             <span className="flex items-center gap-1">
-              <Mail size={12} className="text-red-700" />{" "}
+              <Mail size={17} className="text-red-700" />{" "}
               christainfaithharvestchurch@gmail.com
             </span>
           </div>
           <div className="flex gap-4">
             <Facebook
-              size={14}
+              size={17}
               className="hover:text-red-700 cursor-pointer transition"
             />
             <Youtube
-              size={14}
+              size={17}
               className="hover:text-red-700 cursor-pointer transition"
             />
           </div>
@@ -105,7 +105,8 @@ export default function Navbar() {
             <div
               className={`text-xl md:text-2xl font-black tracking-tighter transition-colors duration-300 ${isSticky || isOpen ? "text-gray-900" : "text-white"}`}
             >
-              <span className="text-red-700">CHRISTIAN</span> FAITH
+              <span className="text-red-700">CHRISTIAN</span> FAITH <br />
+              <span className="text-red-700">HARVEST</span> CHURCH
             </div>
           </Link>
 
