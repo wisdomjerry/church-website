@@ -6,6 +6,7 @@ import {
   Linkedin,
   Plus,
 } from "lucide-react";
+import Link from "next/link"
 
 export default function Footer() {
   return (
@@ -148,18 +149,23 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 mt-20 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="text-[11px] text-gray-500">
           Copyrights © {new Date().getFullYear()}{" "}
-          <span className="text-white">Christain Faith Harvest Church</span>❤
+          <span className="text-white">Christian Faith Harvest Church</span> ❤
         </p>
+
         <div className="flex gap-6 text-[11px] text-gray-500 uppercase tracking-widest font-bold">
-          <a href="#" className="hover:text-white transition-colors">
+          <Link href="/privacy" className="hover:text-white transition-colors">
             Privacy
-          </a>
-          <a href="#" className="hover:text-white transition-colors">
+          </Link>
+          {/* Added Terms of Service Link */}
+          <Link href="/terms" className="hover:text-white transition-colors">
+            Terms of service
+          </Link>
+          <Link href="/sermons" className="hover:text-white transition-colors">
             Sermons
-          </a>
-          <a href="#" className="hover:text-white transition-colors">
+          </Link>
+          <Link href="/contact" className="hover:text-white transition-colors">
             Contact Us
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

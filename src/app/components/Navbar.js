@@ -47,7 +47,7 @@ export default function Navbar() {
         <div className="hidden lg:flex bg-blue-900/10 backdrop-blur-md text-white py-2 px-6 justify-between items-center border-b border-white/10">
           <div className="flex gap-4 text-[10px] font-bold tracking-widest uppercase">
             <span className="flex items-center gap-1"><Phone size={12} className="text-red-700"/> +1 234 567 890</span>
-            <span className="flex items-center gap-1"><Mail size={12} className="text-red-700"/> info@faithharvest.org</span>
+            <span className="flex items-center gap-1"><Mail size={12} className="text-red-700"/> christainfaithharvestchurch@gmail.com</span>
           </div>
           <div className="flex gap-4">
             <Facebook size={14} className="hover:text-red-700 cursor-pointer transition" />
