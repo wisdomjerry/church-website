@@ -375,7 +375,7 @@ export default function Home() {
                 </div>
                 <div className="relative min-h-[300px] hidden md:block">
                   <img
-                    src="/contact-hand.jpg"
+                    src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769266055/contact-hand_frwyrz.png"
                     alt="Contact"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
