@@ -17,7 +17,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menu when body is clicked or path changes
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
@@ -42,9 +41,9 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 w-full z-[100]">
-      {/* Desktop Top Bar (Optional, adds "Classic" feel) */}
+      {/* Desktop Top Bar */}
       {!isSticky && (
-        <div className="hidden lg:flex bg-blue-900/10 backdrop-blur-md text-white py-2 px-6 justify-between items-center border-b border-white/10">
+        <div className="hidden lg:flex bg-black/20 backdrop-blur-md text-white py-2 px-6 justify-between items-center border-b border-white/10 transition-all">
           <div className="flex gap-4 text-[10px] font-bold tracking-widest uppercase">
             <span className="flex items-center gap-1"><Phone size={12} className="text-red-700"/> +1 234 567 890</span>
             <span className="flex items-center gap-1"><Mail size={12} className="text-red-700"/> christainfaithharvestchurch@gmail.com</span>
@@ -56,54 +55,56 @@ export default function Navbar() {
         </div>
       )}
 
-      {/* Main Navigation */}
-      <nav className={`transition-all duration-500 ${isSticky ? "bg-white shadow-2xl py-2" : "bg-transparent py-4"}`}>
-        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
+      {/* Main Navigation with GLASSY effect */}
+      <nav className={`transition-all duration-500 border-b ${
+        isSticky 
+          ? "bg-white/80 backdrop-blur-lg border-gray-100 shadow-lg py-2" 
+          : "bg-black/10 backdrop-blur-sm border-white/5 py-4"
+      }`}>
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-16 relative">
           
-          {/* Logo */}
-          <Link href="/" className="z-[70]">
-            <div className={`text-xl md:text-2xl font-black tracking-tighter ${isSticky || isOpen ? "text-gray-900" : "text-white"}`}>
+          {/* Logo - max-width added to prevent overlapping hamburger */}
+          <Link href="/" className="z-[110] relative max-w-[70%]">
+            <div className={`text-xl md:text-2xl font-black tracking-tighter truncate transition-colors duration-300 ${isSticky || isOpen ? "text-gray-900" : "text-white"}`}>
               <span className="text-red-700">CHRISTIAN</span> FAITH
             </div>
           </Link>
 
-          {/* Desktop Links (Kept original logic) */}
+          {/* Desktop Links */}
           <div className="hidden lg:flex space-x-8 items-center text-[11px] font-black uppercase tracking-widest">
             {menuItems.map((item) => (
                <Link 
                 key={item.name} 
                 href={item.href} 
-                className={`${isSticky ? "text-gray-700" : "text-white"} hover:text-red-700 transition-colors ${pathname === item.href ? "text-red-700" : ""}`}
+                className={`transition-colors duration-300 ${isSticky ? "text-gray-700" : "text-white"} hover:text-red-700 ${pathname === item.href ? "text-red-700" : ""}`}
                >
                 {item.name}
                </Link>
             ))}
-            <Link href="/donate" className="bg-red-700 text-white px-6 py-3 rounded-sm hover:bg-gray-900 transition text-[10px] tracking-[0.2em]">
+            <Link href="/donate" className="bg-red-700 text-white px-6 py-3 rounded-sm hover:bg-gray-900 transition text-[10px] tracking-[0.2em] shadow-lg">
               DONATE
             </Link>
           </div>
 
-          {/* CLASSIC HAMBURGER BUTTON */}
+          {/* CLASSIC HAMBURGER BUTTON - ml-auto forces it to the right */}
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden flex flex-col justify-center items-center w-10 h-10 z-[110] outline-none group"
+            className="lg:hidden flex flex-col justify-center items-end w-10 h-10 z-[110] outline-none group ml-auto"
           >
             <span className={`block w-6 h-0.5 mb-1.5 transition-all duration-300 ${isOpen ? "rotate-45 translate-y-2 bg-gray-900" : isSticky ? "bg-gray-900" : "bg-white"}`}></span>
             <span className={`block w-6 h-0.5 mb-1.5 transition-all duration-300 ${isOpen ? "opacity-0" : isSticky ? "bg-gray-900" : "bg-white"}`}></span>
-            <span className={`block w-6 h-0.5 transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-2 bg-gray-900" : isSticky ? "bg-gray-900" : "bg-white"}`}></span>
+            <span className={`block w-4 h-0.5 transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-2 w-6 bg-gray-900" : isSticky ? "bg-gray-900" : "bg-white"}`}></span>
           </button>
         </div>
 
         {/* --- CLASSIC SIDE DRAWER MENU --- */}
         <div className={`fixed inset-0 lg:hidden transition-all duration-500 z-[105] ${isOpen ? "visible" : "invisible"}`}>
-          {/* Backdrop */}
           <div 
-            className={`absolute inset-0 bg-black/60 transition-opacity duration-500 ${isOpen ? "opacity-100" : "opacity-0"}`}
+            className={`absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-500 ${isOpen ? "opacity-100" : "opacity-0"}`}
             onClick={() => setIsOpen(false)}
           />
           
-          {/* Content */}
-          <div className={`absolute top-0 right-0 w-[80%] max-w-sm h-full bg-white transition-transform duration-500 ease-out shadow-2xl flex flex-col ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
+          <div className={`absolute top-0 right-0 w-[85%] max-w-sm h-full bg-white/95 backdrop-blur-xl transition-transform duration-500 ease-out shadow-2xl flex flex-col ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
             <div className="p-8 pt-24 overflow-y-auto flex-1">
               <nav className="flex flex-col space-y-1">
                 {menuItems.map((item) => {
@@ -149,12 +150,11 @@ export default function Navbar() {
               </div>
             </div>
 
-            {/* Drawer Footer */}
-            <div className="p-8 bg-gray-50 border-t border-gray-100">
+            <div className="p-8 bg-gray-50/50 border-t border-gray-100">
               <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-4">Follow Us</p>
               <div className="flex gap-6 text-gray-400">
-                <Facebook size={18} className="hover:text-red-700 cursor-pointer" />
-                <Youtube size={18} className="hover:text-red-700 cursor-pointer" />
+                <Facebook size={18} className="hover:text-red-700 cursor-pointer transition" />
+                <Youtube size={18} className="hover:text-red-700 cursor-pointer transition" />
               </div>
             </div>
           </div>
