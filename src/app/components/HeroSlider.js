@@ -102,7 +102,7 @@ export default function HeroSlider() {
   };
 
   return (
-    <section className="group relative h-screen w-full overflow-hidden bg-black flex flex-col justify-center pt-70">
+    <section className="group relative h-screen w-full overflow-hidden bg-black flex flex-col justify-center">
       {/* Background Images */}
       {slides.map((slide, i) => (
         <div
@@ -133,7 +133,7 @@ export default function HeroSlider() {
         </div>
 
         {/* Title */}
-        <h1 className="text-5xl md:text-8xl font-black leading-[1.1] mb-8">
+        <h1 className="text-3xl md:text-7xl font-black leading-[1.1] mb-8">
           <AnimatedWords
             text={slides[index].title}
             isAnimating={isAnimating}
