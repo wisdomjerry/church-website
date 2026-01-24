@@ -95,7 +95,7 @@ export default function Navbar() {
               className={`p-2 rounded-full transition-all duration-500 ${isSticky || isOpen ? "bg-red-700 text-white" : "bg-white/10 text-white group-hover:bg-red-700"}`}
             >
               <Image
-                src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769273735/favicon.ico_lwmtd1.png"
+                src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769274333/favicon.ico_lwmtd1.png"
                 width={40}
                 height={40}
                 alt="Logo"
