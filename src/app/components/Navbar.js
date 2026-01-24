@@ -61,7 +61,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
           
           {/* Logo */}
-          <Link href="/" className="z-[110]">
+          <Link href="/" className="z-[70]">
             <div className={`text-xl md:text-2xl font-black tracking-tighter ${isSticky || isOpen ? "text-gray-900" : "text-white"}`}>
               <span className="text-red-700">CHRISTIAN</span> FAITH
             </div>
