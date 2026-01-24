@@ -1,6 +1,6 @@
 "use client";
 import { blogPosts } from "../../data/blogData";
-import Reveal from "./Reveal";
+import Reveal from "./FadeUp";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import Link from "next/link";

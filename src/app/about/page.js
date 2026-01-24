@@ -1,5 +1,5 @@
 "use client";
-import Reveal from "../components/Reveal";
+import Reveal from "../components/FadeUp";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import {

@@ -1,36 +1,43 @@
 "use client";
 import { useEffect, useState } from "react";
 import EventCard from "./EventCard";
-import Reveal from "./Reveal";
+import Reveal from "./FadeUp";
 
 export default function EventSlider({ events }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  
+  // On mobile, we show 1 card. On desktop, we show 3.
+  // This helps the dots and sliding math stay accurate.
+  const cardsToShow = 3; 
+  const maxIndex = events.length - cardsToShow;
 
-  // Auto-slide every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1 >= events.length - 2 ? 0 : prev + 1));
-    }, 9000);
+      setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+    }, 9000); // 9 seconds per slide
     return () => clearInterval(interval);
-  }, [events.length]);
+  }, [maxIndex]);
 
   return (
-    <div className="max-w-6xl  mx-auto overflow-hidden px-4">
+    <div className="max-w-6xl mx-auto overflow-hidden px-4">
       {/* The Sliding Row */}
       <div
-        className="flex rounded-xl transition-transform duration-700 ease-in-out gap-6"
-        style={{ transform: `translateX(-${currentIndex * (100 / 3)}%)` }}
+        className="flex transition-transform duration-700 ease-in-out gap-6"
+        style={{ 
+          transform: `translateX(-${currentIndex * (100 / cardsToShow)}%)` 
+        }}
       >
         {events.map((event, index) => (
           <div
             key={index}
-            className="w-full  md:w-[calc(33.333%-16px)] shrink-0"
+            className="w-full md:w-[calc(33.333%-16px)] shrink-0"
           >
             <Reveal
               delay={
-                index === 0 ? "delay-1" : index === 1 ? "delay-2" : "delay-3"
+                index % 3 === 0 ? "delay-1" : index % 3 === 1 ? "delay-2" : "delay-3"
               }
             >
+              {/* {...event} passes title, date, time, image, AND slug to EventCard */}
               <EventCard {...event} />
             </Reveal>
           </div>
@@ -39,14 +46,16 @@ export default function EventSlider({ events }) {
 
       {/* Slider Dots */}
       <div className="flex justify-center gap-2 mt-12">
-        {events.slice(0, events.length - 2).map((_, idx) => (
+        {/* We generate dots based on how many sliding positions there are */}
+        {events.slice(0, maxIndex + 1).map((_, idx) => (
           <button
             key={idx}
             onClick={() => setCurrentIndex(idx)}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+            aria-label={`Go to slide ${idx + 1}`}
+            className={`h-2.5 rounded-full transition-all duration-300 ${
               currentIndex === idx
-                ? "bg-red-700 w-6" // Active dot becomes longer like premium themes
-                : "border border-red-700 bg-transparent"
+                ? "bg-red-700 w-8 shadow-[0_0_8px_rgba(185,28,28,0.4)]" 
+                : "w-2.5 border border-red-700 bg-transparent hover:bg-red-700/20"
             }`}
           />
         ))}

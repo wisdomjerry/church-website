@@ -1,49 +1,88 @@
 "use client";
 import { useState } from "react";
 import { ChevronRight, Plus, Calendar, MapPin, Minus } from "lucide-react";
+import Link from "next/link";
 
 const events = [
   {
+    slug: "sunday-worship",
     title: "Sunday Worship Service",
-    date: "Every Sunday - 10:00 AM",
+    date: "Every Sunday",
+    time: "10:00 AM",
+    location: "Main Sanctuary",
+    image: "/church-interior.png",
+    description:
+      "Join us for our weekly worship service featuring inspiring sermons, communal prayer, and uplifting music. It is a time for the whole family to come together and experience the presence of God.",
+  },
+  {
+    slug: "youth-fellowship",
+    title: "Youth Fellowship",
+    date: "Every Friday",
+    time: "6:00 PM",
+    location: "Youth Hall",
+    image: "/David.png", // Using the Youth Pastor's context or a youth-related image
+    description:
+      "A dynamic and high-energy environment for our youth to meet, pray, and grow together. We focus on building a strong foundation in faith while navigating the challenges of modern life.",
+  },
+  {
+    slug: "community-outreach",
+    title: "Community Outreach",
+    date: "1st Saturday",
+    time: "9:00 AM",
+    location: "Church Grounds",
+    image: "/global.png",
+    description:
+      "Putting our faith into action. Join us as we serve our local community through volunteering, charity distribution, and various support programs to help those in need.",
+  },
+  {
+    slug: "mid-week-prayer",
+    title: "Mid-Week Prayer Meeting",
+    date: "Every Wednesday",
+    time: "7:00 PM",
+    location: "Grace Chapel",
+    image: "/church-about.png",
+    description:
+      "A dedicated time of intercession and spiritual renewal. We set aside our mid-week worries to seek God's guidance for our families, our church, and our nation.",
+  },
+  {
+    slug: "spiritually-reborn",
+    title: "Spiritually Reborn As God’s Children",
+    date: "Sep 20",
+    time: "8.00 pm",
+    image: "/Reborn.png",
     location: "Main Sanctuary",
     description:
-      "Join us for our weekly worship service with inspiring sermons and uplifting music.",
+      "Join us for a powerful night of transformation and spiritual awakening. We will explore what it means to be truly reborn through faith and the word of God in a welcoming community environment.",
   },
   {
-    title: "Youth Fellowship",
-    date: "Friday - 6:00 PM",
-    location: "Youth Hall",
-    description:
-      "A time for our youth to meet, pray, and grow together in faith and fellowship.",
-  },
-  {
-    title: "Community Outreach",
-    date: "1st Saturday of every month",
-    location: "Church Grounds",
-    description:
-      "Serving our community through volunteering, charity events, and support programs.",
-  },
-  {
-    title: "Mid-Week Prayer Meeting",
-    date: "Wednesday - 7:00 PM",
-    location: "Grace Chapel",
-    description:
-      "A dedicated time of intercession and spiritual renewal as we seek God's guidance for our families and nation.",
-  },
-  {
+    slug: "womens-bible-study",
     title: "Women's Bible Study",
-    date: "Tuesday - 10:30 AM",
+    date: "Every Tuesday",
+    time: "10:30 AM",
     location: "Fellowship Room",
+    image: "/Sarah.png", // Using the Worship Leader/Women's ministry context
     description:
-      "Deepen your understanding of the Word while building lasting relationships with other women in our community.",
+      "Deepen your understanding of the Word while building lasting, supportive relationships with other women. A safe space for discussion, growth, and shared wisdom.",
   },
   {
-    title: "Monthly Family Brunch",
-    date: "Last Saturday - 11:00 AM",
-    location: "Main Hall",
+    slug: "youth-night-light",
+    title: "Youth Night: Light of the World",
+    date: "Dec 24",
+    time: "07.00 pm",
+    image: "/church-interior.png",
+    location: "Youth Hub",
     description:
-      "Bringing families together for food, laughter, and shared stories. All generations are welcome to join the table.",
+      "An energetic Christmas Eve gathering designed specifically for the next generation. Featuring live music, interactive messages, and a focus on being the light in our schools and communities.",
+  },
+  {
+    slug: "family-brunch",
+    title: "Monthly Family Brunch",
+    date: "Last Saturday",
+    time: "11:00 AM",
+    location: "Main Hall",
+    image: "/music.png",
+    description:
+      "Bringing all generations together for food, laughter, and shared stories. This monthly gathering is designed to strengthen the bonds within our church family over a shared meal.",
   },
 ];
 
@@ -82,31 +121,28 @@ export default function EventsPage() {
     <main className="bg-[#F9F6F0] min-h-screen">
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center">
-        {/* 1. BACKGROUND LAYER: Isolates the zoom/scale effect */}
         <div className="absolute inset-0 overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-[10000ms] ease-out scale-110 animate-slow-zoom"
-            style={{
-              backgroundImage: "url('/church-events.png')",
-              backgroundRepeat: "no-repeat",
-            }}
+            style={{ backgroundImage: "url('/church-events.png')" }}
           >
-            {/* Dark Overlay - Inside the zoom layer to keep it consistent */}
             <div className="absolute inset-0 bg-[#0a1227]/50"></div>
           </div>
         </div>
 
-        {/* 2. CONTENT LAYER: Fixed text */}
         <div className="relative z-10 text-center text-white pt-10 animate-fade-up">
           <h1 className="text-5xl md:text-7xl font-serif font-medium tracking-tight mb-6 drop-shadow-2xl">
             Our Events
           </h1>
 
-          {/* Breadcrumb */}
           <nav className="flex items-center justify-center gap-3 text-[12px] font-bold uppercase tracking-[0.2em]">
-            <span className="text-red-700 hover:text-red-600 transition-colors cursor-pointer">
+            {/* Added Link to Home */}
+            <Link
+              href="/"
+              className="text-red-700 hover:text-red-600 transition-colors"
+            >
               Home
-            </span>
+            </Link>
             <span className="text-gray-400">
               <ChevronRight size={16} strokeWidth={4} />
             </span>
@@ -114,18 +150,16 @@ export default function EventsPage() {
           </nav>
         </div>
 
-        {/* 3. BADGE LAYER: Stays outside the overflow-hidden layer so it remains visible */}
         <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 z-30 animate-bounce-slow">
           <div className="relative w-20 h-20 bg-red-700 rounded-full rounded-br-none rotate-[225deg] border-[6px] border-white shadow-xl flex items-center justify-center">
-            <div className="-rotate-[225deg] relative w-6 h-9">
-              <div className="absolute left-1/2 top-0 w-[3px] h-full bg-white -translate-x-1/2"></div>
-              <div className="absolute left-0 top-[30%] w-full h-[3px] bg-white"></div>
+            <div className="-rotate-[225deg] text-white">
+              <Calendar size={24} />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Upcoming Events - Saint Template Style */}
+      {/* Upcoming Events Section */}
       <section className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
@@ -141,25 +175,28 @@ export default function EventsPage() {
             {events.map((event, index) => (
               <div
                 key={index}
-                className="flex flex-col md:flex-row justify-between items-start gap-6 border-b border-gray-300 pb-12 transition-all duration-300 hover:opacity-80"
+                className="group flex flex-col md:flex-row justify-between items-start gap-6 border-b border-gray-300 pb-12 transition-all duration-300"
               >
                 <div className="flex-1 space-y-4">
-                  <h3 className="text-3xl font-serif text-[#333333] leading-tight">
-                    {event.title}
-                  </h3>
+                  {/* Link Title to Slug */}
+                  <Link href={`/events/${event.slug}`}>
+                    <h3 className="text-3xl font-serif text-[#333333] leading-tight group-hover:text-red-700 transition-colors cursor-pointer">
+                      {event.title}
+                    </h3>
+                  </Link>
                   <p className="text-gray-500 text-sm leading-relaxed max-w-sm font-light">
-                    {event.description}
+                    {event.description.substring(0, 120)}...
                   </p>
                 </div>
 
                 <div className="w-full md:w-[180px] space-y-4">
                   <div className="space-y-1">
                     <h4 className="text-lg font-serif text-[#333333]">
-                      May 27Th
+                      {event.date}
                     </h4>
                     <div className="flex items-center gap-2 text-gray-400 text-[11px] uppercase tracking-wider">
-                      <Calendar size={14} className="text-[#B38B59]" />
-                      <span>10 AM - 14 PM</span>
+                      <Clock size={14} className="text-[#B38B59]" />
+                      <span>{event.time}</span>
                     </div>
                   </div>
 
@@ -169,12 +206,13 @@ export default function EventsPage() {
                   </div>
 
                   <div className="pt-2">
-                    <a
-                      href="#"
-                      className="text-[#B38B59] rounded-lg font-bold text-[11px] uppercase tracking-[0.2em] hover:underline"
+                    {/* Link Button to Slug */}
+                    <Link
+                      href={`/events/${event.slug}`}
+                      className="text-[#B38B59] font-black text-[11px] uppercase tracking-[0.2em] border-b border-transparent hover:border-[#B38B59] transition-all"
                     >
                       Learn More
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -260,5 +298,24 @@ export default function EventsPage() {
         </div>
       </section>
     </main>
+  );
+}
+
+function Clock({ size, className }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <circle cx="12" cy="12" r="10" />
+      <polyline points="12 6 12 12 16 14" />
+    </svg>
   );
 }

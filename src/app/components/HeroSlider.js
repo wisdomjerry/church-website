@@ -9,24 +9,25 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
+
 const slides = [
   {
     tag: "Welcome to Christian Faith",
     title: "Experience God's Unconditional Love",
     subtitle: "A place of worship, faith, love, and spiritual growth for everyone.",
-    image: "/hero-1.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769169917/hero-1_tutdgj.png",
   },
   {
     tag: "Join Our Community",
     title: "Experience Powerful Worship",
     subtitle: "Join us every Sunday as we lift our hearts in praise and worship.",
-    image: "/hero-2.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769169917/hero-2_iylfab.jpg",
   },
   {
     tag: "Grow In Grace",
     title: "Grow Together in Faith",
     subtitle: "Connect with our community through fellowship, prayer, and service.",
-    image: "/hero-3.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769170413/hero-3_ajtun8.png",
   },
 ];
 
