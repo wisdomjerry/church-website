@@ -102,7 +102,7 @@ export default function HeroSlider() {
   };
 
   return (
-    <section className="group relative h-screen w-full overflow-hidden bg-black flex flex-col justify-center">
+    <section className="group relative h-screen w-full overflow-hidden bg-black flex flex-col justify-end pb-20">
       {/* Background Images */}
       {slides.map((slide, i) => (
         <div
