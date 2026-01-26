@@ -101,7 +101,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="absolute -bottom-6 -left-6 w-full h-full border-[15px] border-gray-100 -z-10"></div>
               <img
-                src="/church-interior.png"
+                src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769441803/Church_Interior_g5pd12.png"
                 alt="Church interior"
                 className="w-full h-[500px] object-cover rounded-sm shadow-lg"
               />
