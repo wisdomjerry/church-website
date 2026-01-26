@@ -225,7 +225,7 @@ export default function Home() {
             <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
               <div className="relative h-[500px] w-full overflow-hidden rounded-xl shadow-2xl">
                 <Image
-                  src="/church-interior.png"
+                  src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769441803/Church_Interior_g5pd12.png"
                   fill
                   className="object-cover"
                   alt="Church Interior"
