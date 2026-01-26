@@ -133,7 +133,7 @@ export default function HeroSlider() {
         </div>
 
         {/* Title */}
-        <h1 className="text-3xl md:text-7xl font-black leading-[1.1] mb-8">
+        <h1 className="text-5xl md:text-7xl font-black leading-[1.1] mb-8">
           <AnimatedWords
             text={slides[index].title}
             isAnimating={isAnimating}

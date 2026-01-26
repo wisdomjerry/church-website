@@ -10,7 +10,7 @@ const events = [
     date: "Every Sunday",
     time: "10:00 AM",
     location: "Main Sanctuary",
-    image: "/church-interior.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769431105/Sunday_Worship_Service_uh1fbg.png",
     description:
       "Join us for our weekly worship service featuring inspiring sermons, communal prayer, and uplifting music. It is a time for the whole family to come together and experience the presence of God.",
   },
@@ -20,7 +20,7 @@ const events = [
     date: "Every Friday",
     time: "6:00 PM",
     location: "Youth Hall",
-    image: "/David.png", // Using the Youth Pastor's context or a youth-related image
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769431591/youth-fellowship_kq568z.png", // Using the Youth Pastor's context or a youth-related image
     description:
       "A dynamic and high-energy environment for our youth to meet, pray, and grow together. We focus on building a strong foundation in faith while navigating the challenges of modern life.",
   },
@@ -30,7 +30,7 @@ const events = [
     date: "1st Saturday",
     time: "9:00 AM",
     location: "Church Grounds",
-    image: "/global.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769431107/community_outreach_ix7cro.png",
     description:
       "Putting our faith into action. Join us as we serve our local community through volunteering, charity distribution, and various support programs to help those in need.",
   },
@@ -40,7 +40,7 @@ const events = [
     date: "Every Wednesday",
     time: "7:00 PM",
     location: "Grace Chapel",
-    image: "/church-about.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769431105/Mid-Week_Prayer_Meeting_u7d2hm.png",
     description:
       "A dedicated time of intercession and spiritual renewal. We set aside our mid-week worries to seek God's guidance for our families, our church, and our nation.",
   },
@@ -49,7 +49,7 @@ const events = [
     title: "Spiritually Reborn As God’s Children",
     date: "Sep 20",
     time: "8.00 pm",
-    image: "/Reborn.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769431441/Reborn_wrskko.png",
     location: "Main Sanctuary",
     description:
       "Join us for a powerful night of transformation and spiritual awakening. We will explore what it means to be truly reborn through faith and the word of God in a welcoming community environment.",
@@ -60,7 +60,7 @@ const events = [
     date: "Every Tuesday",
     time: "10:30 AM",
     location: "Fellowship Room",
-    image: "/Sarah.png", // Using the Worship Leader/Women's ministry context
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769426691/Women_fellowship_oph9rz.png", // Using the Worship Leader/Women's ministry context
     description:
       "Deepen your understanding of the Word while building lasting, supportive relationships with other women. A safe space for discussion, growth, and shared wisdom.",
   },
@@ -69,7 +69,7 @@ const events = [
     title: "Youth Night: Light of the World",
     date: "Dec 24",
     time: "07.00 pm",
-    image: "/church-interior.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769431106/Youth_Night_inlcbk.png",
     location: "Youth Hub",
     description:
       "An energetic Christmas Eve gathering designed specifically for the next generation. Featuring live music, interactive messages, and a focus on being the light in our schools and communities.",
@@ -80,7 +80,7 @@ const events = [
     date: "Last Saturday",
     time: "11:00 AM",
     location: "Main Hall",
-    image: "/music.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769431104/Monthly_Family_Brunch_djk0pb.png",
     description:
       "Bringing all generations together for food, laughter, and shared stories. This monthly gathering is designed to strengthen the bonds within our church family over a shared meal.",
   },

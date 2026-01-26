@@ -6,10 +6,9 @@ import {
   Phone,
   Mail,
   ChevronRight,
-  Search,
-  Calendar,
-  Users,
+  ChevronLeft,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function GlobalMinistry() {
   const missionLocations = [
@@ -22,7 +21,7 @@ export default function GlobalMinistry() {
     <main className="bg-white min-h-screen">
       {/* 1. HERO SECTION - Using a Global/Map themed Background */}
       <section className="relative h-[60vh] bg-[#0a1227] flex flex-col items-center justify-center text-white">
-        <div className="absolute inset-0 opacity-40 bg-[url('/global-mission-bg.jpg')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 opacity-40 bg-[url('https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769425992/ministry-4_ymcfua.png')] bg-cover bg-center"></div>
         <div className="relative z-10 text-center">
           <nav className="flex items-center justify-center gap-2 text-[10px] uppercase tracking-widest mb-4">
             <span className="text-gray-400">Home</span>
@@ -64,7 +63,7 @@ export default function GlobalMinistry() {
 
           <div className="rounded-sm overflow-hidden shadow-2xl relative group">
             <img
-              src="/global-main.jpg"
+              src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769426198/global-main_yfuig9.png"
               alt="Missions team in the field"
               className="w-full h-[450px] object-cover"
             />
@@ -123,6 +122,20 @@ export default function GlobalMinistry() {
                 </p>
               </div>
             ))}
+          </div>
+          <div className="pt-10 flex justify-between border-t border-gray-100">
+            <Link
+              href="/ministries/music"
+              className="bg-red-700 text-white px-8 py-3 rounded-sm flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:bg-gray-900 transition-colors"
+            >
+              <ChevronLeft size={16} /> Music
+            </Link>
+            <Link
+              href="/ministries/womens"
+              className="bg-red-700 text-white px-8 py-3 rounded-sm flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:bg-gray-900 transition-colors"
+            >
+              Women <ChevronRight size={16} />
+            </Link>
           </div>
         </div>
 

@@ -9,7 +9,7 @@ export const blogPosts = [
     date: "OCT 21, 2019",
     author: "Admin",
     comments: 2,
-    image: "/church-interior.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769433827/Giving_Back_Uganda_Training_Centers_dxff8w.png",
     category: "Charity",
     quote:
       "Education is the most powerful weapon which you can use to change the world.",
@@ -27,7 +27,7 @@ export const blogPosts = [
     date: "OCT 21, 2019",
     author: "Admin",
     comments: 5,
-    image: "/music.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769433827/Giving_Back_Uganda_Training_Centers_dxff8w.png",
     category: "Faithful",
     quote: "Where the Spirit of the Lord is, there is freedom.",
     content: [
@@ -43,7 +43,7 @@ export const blogPosts = [
     date: "OCT 20, 2019",
     author: "Admin",
     comments: 0,
-    image: "/water-crisis.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769433175/water-crisis_gpusag.png",
     category: "Global",
     quote:
       "But whoever drinks of the water that I will give him will never be thirsty again.",
@@ -60,7 +60,7 @@ export const blogPosts = [
     date: "OCT 15, 2019",
     author: "Admin",
     comments: 3,
-    image: "/prison.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769433936/community-prayer-news_yojygm.png",
     category: "Prayer",
     quote: "The prayer of a righteous person is powerful and effective.",
     content: [
@@ -76,7 +76,7 @@ export const blogPosts = [
     date: "OCT 10, 2019",
     author: "Admin",
     comments: 1,
-    image: "/hero-1.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769431106/Youth_Night_inlcbk.png",
     category: "Sermon",
     quote:
       "Let no one despise you for your youth, but set the believers an example.",
@@ -92,7 +92,7 @@ export const blogPosts = [
     date: "OCT 05, 2019",
     author: "Admin",
     comments: 12,
-    image: "/church-interior.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769433857/Experience_Sunday_Worship_Live_fsp68j.png",
     category: "Sermon"
   },
   {
@@ -102,7 +102,7 @@ export const blogPosts = [
     date: "SEP 28, 2019",
     author: "Admin",
     comments: 4,
-    image: "/global.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769433880/Global_Missions_ca7ii9.png",
     category: "Global"
   },
   {
@@ -112,7 +112,7 @@ export const blogPosts = [
     date: "SEP 15, 2019",
     author: "Admin",
     comments: 20,
-    image: "/hero-1.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769433882/Youth_Camp_fwpfte.png",
     category: "Faithful"
   },
   {
@@ -122,7 +122,7 @@ export const blogPosts = [
     date: "SEP 01, 2019",
     author: "Admin",
     comments: 7,
-    image: "/prison.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769433896/Building_Stronger_Families_Together_zrspli.png",
     category: "Prayer"
   },
 ];

@@ -1,6 +1,8 @@
 "use client";
 
 import { useRef, Suspense } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,12 +18,23 @@ import FeatureCards from "./components/FeatureCards";
 import FadeUp from "./components/FadeUp";
 import LatestPosts from "./components/LatestPosts";
 import Loading from "./components/Loading";
-import Error from "./components/Error";
 
 // Icons
 import { Heart, BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
 
+/* -------------------- STYLES & CONSTANTS -------------------- */
+
+const STYLES = {
+  sectionTitle:
+    "text-4xl md:text-5xl font-black uppercase tracking-tighter text-gray-900",
+  sectionLabel:
+    "text-red-700 uppercase text-[10px] tracking-[0.3em] font-black mb-3 block",
+  globalReadMore:
+    "text-red-700 text-[10px] font-black uppercase tracking-widest border-b-2 border-red-700 pb-0.5 inline-block group-hover:text-gray-900 group-hover:border-gray-900 transition-all cursor-pointer",
+};
+
 /* -------------------- DATA -------------------- */
+
 const events = [
   {
     slug: "sunday-worship",
@@ -29,7 +42,7 @@ const events = [
     date: "Every Sunday",
     time: "10:00 AM",
     location: "Main Sanctuary",
-    image: "/church-interior.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769431105/Sunday_Worship_Service_uh1fbg.png",
     description:
       "Join us for our weekly worship service featuring inspiring sermons, communal prayer, and uplifting music.",
   },
@@ -39,7 +52,7 @@ const events = [
     date: "Every Friday",
     time: "6:00 PM",
     location: "Youth Hall",
-    image: "/David.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769431591/youth-fellowship_kq568z.png",
     description:
       "A dynamic and high-energy environment for our youth to meet, pray, and grow together.",
   },
@@ -49,7 +62,7 @@ const events = [
     date: "1st Saturday",
     time: "9:00 AM",
     location: "Church Grounds",
-    image: "/global.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769431107/community_outreach_ix7cro.png",
     description:
       "Putting our faith into action. Join us as we serve our local community through volunteering.",
   },
@@ -59,7 +72,7 @@ const events = [
     date: "Every Wednesday",
     time: "7:00 PM",
     location: "Grace Chapel",
-    image: "/church-about.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769431105/Mid-Week_Prayer_Meeting_u7d2hm.png",
     description: "A dedicated time of intercession and spiritual renewal.",
   },
   {
@@ -67,7 +80,7 @@ const events = [
     title: "Spiritually Reborn As God’s Children",
     date: "Sep 20",
     time: "8.00 pm",
-    image: "/Reborn.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769431441/Reborn_wrskko.png",
     location: "Main Sanctuary",
     description:
       "Join us for a powerful night of transformation and spiritual awakening.",
@@ -78,8 +91,8 @@ const events = [
     date: "Every Tuesday",
     time: "10:30 AM",
     location: "Fellowship Room",
-    image: "/Sarah.png",
-    description:
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769426691/Women_fellowship_oph9rz.png",
+    description: 
       "Deepen your understanding of the Word while building supportive relationships.",
   },
   {
@@ -87,7 +100,7 @@ const events = [
     title: "Youth Night: Light of the World",
     date: "Dec 24",
     time: "07.00 pm",
-    image: "/church-interior.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769431106/Youth_Night_inlcbk.png",
     location: "Youth Hub",
     description:
       "An energetic Christmas Eve gathering designed specifically for the next generation.",
@@ -98,7 +111,7 @@ const events = [
     date: "Last Saturday",
     time: "11:00 AM",
     location: "Main Hall",
-    image: "/music.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769431104/Monthly_Family_Brunch_djk0pb.png",
     description:
       "Bringing all generations together for food, laughter, and shared stories.",
   },
@@ -107,27 +120,95 @@ const events = [
 const ministries = [
   {
     title: "Music Ministry",
-    img: "/music.png",
-    desc: "Our music ministry is dedicated to leading the congregation into a deep and authentic worship experience through song and instrumental excellence.",
+    img: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769428710/Worship_Hero_l55ji4.png",
+    slug: "music",
+    desc: "Our music ministry is dedicated to leading the congregation into a deep and authentic worship experience.",
   },
   {
     title: "Global Ministry",
-    img: "/global.png",
-    desc: "Reaching beyond borders to share the message of hope. We support missions and community development projects around the world.",
+    img: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769420255/global_o8y8jh.png",
+    slug: "global",
+    desc: "Reaching beyond borders to share the message of hope. We support missions and development around the world.",
   },
   {
-    title: "Prison Ministry",
-    img: "/prison.png",
-    desc: "Bringing light to the darkest places. We visit and support those incarcerated, sharing the transformative power of grace and second chances.",
+    title: "Women Ministry",
+    img: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769426691/pattern_leq5tv.png",
+    slug: "women",
+    desc: "A community of women dedicated to growing in faith, supporting one another, and serving with love.",
+  },
+  {
+    title: "Married's Ministry",
+    img: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769427589/married-hero_uib5mh.png",
+    slug: "married",
+    desc: "Strengthening the bonds of family through faith-based guidance and community support.",
   },
   {
     title: "Youth Ministry",
-    img: "/hero-1.png",
-    desc: "Empowering the next generation to live boldly for their faith. We provide a space for growth, mentorship, and vibrant community.",
+    img: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769424371/ministry-3_ndb1gf.png",
+    slug: "youth",
+    desc: "Empowering the next generation to live boldly for their faith through mentorship and community.",
+  },
+  {
+    title: "Children Ministry",
+    img: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769425461/hero-bg_z1lish.png",
+    slug: "children",
+    desc: "Creating a safe and fun environment for children to discover the love of God.",
   },
 ];
 
-/* -------------------- PAGE -------------------- */
+/* -------------------- SUB-COMPONENTS -------------------- */
+
+const SectionHeader = ({ label, title, center = false, light = false }) => (
+  <div className={`mb-12 ${center ? "text-center" : ""}`}>
+    {label && (
+      <span className={`${STYLES.sectionLabel} ${light ? "text-red-500" : ""}`}>
+        {label}
+      </span>
+    )}
+    <h2
+      className={`${STYLES.sectionTitle} ${light ? "text-white" : "text-gray-900"}`}
+    >
+      {title}
+    </h2>
+    <div
+      className={`flex ${center ? "justify-center" : "justify-start"} gap-1 mt-4`}
+    >
+      <div className="w-8 h-[2px] bg-red-700"></div>
+      {/* Keeping your gap design if needed */}
+      <div className="w-4 h-[2px] bg-red-700"></div>
+    </div>
+  </div>
+);
+
+const MinistryCard = ({ ministry }) => (
+  <Link href={`/ministries/${ministry.slug}`} className="group block h-full">
+    <div className="bg-[#fcfcfc] border border-gray-100 rounded-xl overflow-hidden flex flex-col h-[500px] transition-all duration-500 hover:shadow-2xl relative">
+      <div className="h-60 relative overflow-hidden">
+        <Image
+          src={ministry.img}
+          alt={ministry.title}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+      </div>
+      <div className="p-8 flex flex-col flex-1">
+        <h4 className="font-black text-xl uppercase tracking-tighter text-gray-900 mb-4 group-hover:text-red-700 transition-colors">
+          {ministry.title}
+        </h4>
+        <p className="text-gray-500 text-sm leading-relaxed mb-6">
+          {ministry.desc}
+        </p>
+        <div className="mt-auto">
+          <span className={STYLES.globalReadMore}>Read More</span>
+        </div>
+      </div>
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-transparent group-hover:bg-red-700 transition-colors duration-300" />
+    </div>
+  </Link>
+);
+
+/* -------------------- MAIN PAGE -------------------- */
+
 export default function Home() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -135,129 +216,68 @@ export default function Home() {
   return (
     <Suspense fallback={<Loading pageName="Home" />}>
       <main className="min-h-screen bg-white overflow-x-hidden">
-        {/* HERO SLIDER */}
         <HeroSlider />
-
-        {/* FEATURE CARDS */}
         <FeatureCards />
 
-        {/* ABOUT */}
+        {/* ABOUT SECTION */}
         <section id="about" className="py-24 px-4">
           <FadeUp>
             <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-              <img
-                src="/church-interior.png"
-                className="rounded shadow-2xl h-[500px] w-full object-cover"
-                alt="Church"
-              />
+              <div className="relative h-[500px] w-full overflow-hidden rounded-xl shadow-2xl">
+                <Image
+                  src="/church-interior.png"
+                  fill
+                  className="object-cover"
+                  alt="Church Interior"
+                />
+              </div>
               <div>
-                <span className="text-red-700 text-xs uppercase tracking-widest font-bold">
-                  About Us
-                </span>
-                <h2 className="text-4xl md:text-5xl font-black mt-4 mb-6 uppercase">
-                  Making the world better through faith
-                </h2>
+                <SectionHeader
+                  label="About Us"
+                  title="Making the world better through faith"
+                />
                 <p className="text-gray-500 italic mb-8">
                   “The name of the Lord is a strong tower; the righteous run
                   into it and are safe.”
                 </p>
                 <div className="grid grid-cols-2 gap-8 mb-10">
-                  <div>
+                  <div className="flex flex-col items-start">
                     <Heart className="text-red-700 mb-3" />
                     <h4 className="font-bold uppercase text-sm">
                       Place of Heaven
                     </h4>
                   </div>
-                  <div>
+                  <div className="flex flex-col items-start">
                     <BookOpen className="text-red-700 mb-3" />
                     <h4 className="font-bold uppercase text-sm">Study Bible</h4>
                   </div>
                 </div>
-                <button className="bg-red-700 text-white px-8 py-4 uppercase text-xs font-bold hover:bg-gray-900 transition">
-                  Learn More
-                </button>
+                <Link href="/about" className="group">
+                  <span className={STYLES.globalReadMore}>Learn More</span>
+                </Link>
               </div>
             </div>
           </FadeUp>
         </section>
 
-        {/* CALL TO ACTION - GLOWING VERSION */}
-        <section className="relative py-32 text-white overflow-hidden">
-          <img
-            src="/church-interior.png"
-            className="absolute inset-0 w-full h-full object-cover"
-            alt="People praying"
-          />
-          <div className="absolute inset-0 bg-[#0a1227]/90" />
-
-          <FadeUp>
-            <div className="relative z-10 max-w-5xl mx-auto text-center px-6">
-              <div className="mb-12 flex justify-center">
-                <div className="relative flex items-center justify-center">
-                  <div className="absolute w-24 h-24 rounded-full border border-red-500/20 animate-pulse" />
-                  <div className="absolute w-20 h-20 rounded-full border border-red-500/40 animate-ping duration-[3000ms]" />
-                  <div className="relative w-16 h-16 rounded-full bg-red-600/20 border-2 border-red-600 flex items-center justify-center shadow-[0_0_30px_rgba(220,38,38,0.5)]">
-                    <Heart
-                      size={22}
-                      className="text-white"
-                      fill="none"
-                      strokeWidth={2}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-6 mb-12">
-                <h2 className="text-2xl md:text-4xl font-bold leading-tight tracking-tight max-w-3xl mx-auto px-4">
-                  “Pray! And listen to God! You can do this alone, but{" "}
-                  <br className="hidden md:block" /> find somebody to do it with
-                  you”
-                </h2>
-                <p className="text-gray-400 font-serif italic text-[13px] md:text-[15px] tracking-wide">
-                  Real Story Cross Journey from Anna Hampton
-                </p>
-              </div>
-
-              <div className="flex justify-center">
-                <button className="group relative border-2 border-red-700/50 px-12 py-4 overflow-hidden transition-all hover:border-red-700">
-                  <span className="relative z-10 text-white text-[11px] font-black uppercase tracking-[0.3em]">
-                    Donate Online
-                  </span>
-                  <div className="absolute inset-0 bg-red-700 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                </button>
-              </div>
-            </div>
-          </FadeUp>
-        </section>
-
-        {/* MINISTRIES - REFACTORED TO MATCH IMAGE */}
+        {/* MINISTRIES SECTION */}
         <section id="ministries" className="py-24 px-4 bg-white">
-          <FadeUp>
-            <div className="text-center mb-16 relative">
-              <span className="text-red-700 uppercase text-[10px] tracking-[0.3em] font-black">
-                Ministries
-              </span>
-              <h2 className="text-4xl font-black text-gray-900 uppercase mt-3 tracking-tighter">
-                Our Ministries
-              </h2>
-              <div className="flex justify-center gap-1 mt-4">
-                <div className="w-8 h-[2px] bg-red-700"></div>
-                <div className="w-4 h-[2px] bg-red-700"></div>
-              </div>
-            </div>
-          </FadeUp>
+          <div className="max-w-7xl mx-auto relative">
+            <FadeUp>
+              <SectionHeader label="Ministries" title="Our Ministries" center />
+            </FadeUp>
 
-          <div className="max-w-7xl mx-auto relative px-4">
+            {/* Navigation Arrows */}
             <div className="flex justify-end mb-8 gap-2">
               <button
                 ref={prevRef}
-                className="bg-red-700 w-10 h-10 rotate-45 flex items-center justify-center text-white hover:bg-gray-900 transition-colors z-10"
+                className="bg-red-700 w-10 h-10 rotate-45 flex items-center justify-center text-white hover:bg-gray-900 transition-all z-10"
               >
                 <ChevronLeft className="-rotate-45" size={20} />
               </button>
               <button
                 ref={nextRef}
-                className="bg-red-700 w-10 h-10 rotate-45 flex items-center justify-center text-white hover:bg-gray-900 transition-colors z-10"
+                className="bg-red-700 w-10 h-10 rotate-45 flex items-center justify-center text-white hover:bg-gray-900 transition-all z-10"
               >
                 <ChevronRight className="-rotate-45" size={20} />
               </button>
@@ -265,10 +285,11 @@ export default function Home() {
 
             <Swiper
               modules={[Navigation, Pagination, Autoplay]}
-              onInit={(swiper) => {
-                swiper.params.navigation.prevEl = prevRef.current;
-                swiper.params.navigation.nextEl = nextRef.current;
-                swiper.navigation.init();
+              onInit={(s) => {
+                s.params.navigation.prevEl = prevRef.current;
+                s.params.navigation.nextEl = nextRef.current;
+                s.navigation.init();
+                s.navigation.update();
               }}
               spaceBetween={30}
               slidesPerView={1}
@@ -280,32 +301,9 @@ export default function Home() {
               className="pb-12"
             >
               {ministries.map((m, i) => (
-                <SwiperSlide key={i}>
+                <SwiperSlide key={m.slug}>
                   <FadeUp delay={`delay-${i}`}>
-                    <div className="group bg-[#fcfcfc] border border-gray-100 rounded-xl overflow-hidden flex flex-col h-[500px] transition-all duration-500 hover:shadow-2xl relative">
-                      <div className="h-60 overflow-hidden">
-                        <img
-                          src={m.img}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                          alt={m.title}
-                        />
-                      </div>
-
-                      <div className="p-8 flex flex-col flex-1">
-                        <h4 className="font-black text-xl uppercase tracking-tighter text-gray-900 mb-4">
-                          {m.title}
-                        </h4>
-                        <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                          {m.desc}
-                        </p>
-                        <div className="mt-auto">
-                          <button className="text-red-700 font-bold uppercase text-[11px] tracking-widest border-b border-transparent hover:border-red-700 transition-all">
-                            Read More
-                          </button>
-                        </div>
-                      </div>
-                      <div className="absolute bottom-0 left-0 w-full h-1 bg-transparent group-hover:bg-red-700 transition-colors duration-300"></div>
-                    </div>
+                    <MinistryCard ministry={m} />
                   </FadeUp>
                 </SwiperSlide>
               ))}
@@ -313,17 +311,21 @@ export default function Home() {
           </div>
         </section>
 
-        {/* EVENTS */}
+        {/* EVENTS SECTION */}
         <section id="events" className="bg-gray-50 py-24 px-4">
           <FadeUp>
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-black uppercase">Upcoming Events</h2>
+            <div className="text-center mb-2">
+              <span className="text-red-700 font-bold uppercase tracking-[0.2em] text-[11px]">
+                Connect with our community
+              </span>
             </div>
+
+            <SectionHeader title="Upcoming Events" center />
           </FadeUp>
           <EventSlider events={events} />
         </section>
 
-        {/* CONTACT */}
+        {/* CONTACT SECTION */}
         <section className="relative pb-32">
           <div
             className="relative h-[500px] flex flex-col items-center justify-start pt-20 bg-cover bg-center bg-fixed"
@@ -333,53 +335,48 @@ export default function Home() {
             }}
           >
             <div className="absolute inset-0 bg-[#0a1227]/80"></div>
-            <div className="relative z-10 text-center space-y-2">
-              <span className="text-red-600 font-bold uppercase tracking-[0.3em] text-[10px]">
-                Contact Us
-              </span>
-              <h2 className="text-4xl md:text-5xl font-serif text-white tracking-tight">
-                Get In Touch
-              </h2>
-              <div className="w-12 h-[2px] bg-red-700 mx-auto mt-4"></div>
+            <div className="relative z-10 text-center">
+              {/* Passed 'light' here to make the title white */}
+              <SectionHeader
+                label="Contact Us"
+                title="Get In Touch"
+                center
+                light
+              />
             </div>
           </div>
+
           <div className="max-w-5xl mx-auto px-6 -mt-48 relative z-20">
             <FadeUp>
-              <div className="bg-white rounded-xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
-                <div className="p-10 md:p-14 space-y-6">
+              <div className="bg-white rounded-xl shadow-2xl overflow-hidden grid md:grid-cols-2">
+                <form className="p-10 md:p-14 space-y-6">
                   <div className="space-y-4">
-                    <input
-                      type="text"
-                      placeholder="Name"
-                      className="w-full border-b border-gray-200 py-3 outline-none focus:border-red-700 transition-colors text-sm font-light"
-                    />
-                    <input
-                      type="email"
-                      placeholder="Email"
-                      className="w-full border-b border-gray-200 py-3 outline-none focus:border-red-700 transition-colors text-sm font-light"
-                    />
-                    <input
-                      type="text"
-                      placeholder="Phone"
-                      className="w-full border-b border-gray-200 py-3 outline-none focus:border-red-700 transition-colors text-sm font-light"
-                    />
+                    {["Name", "Email", "Phone"].map((placeholder) => (
+                      <input
+                        key={placeholder}
+                        type={placeholder === "Email" ? "email" : "text"}
+                        placeholder={placeholder}
+                        className="w-full border-b border-gray-200 py-3 outline-none focus:border-red-700 transition-colors text-sm font-light"
+                      />
+                    ))}
                     <textarea
                       placeholder="Your message"
                       rows={4}
                       className="w-full border-b border-gray-200 py-3 outline-none focus:border-red-700 transition-colors text-sm font-light resize-none"
                     />
                   </div>
-                  <button className="bg-red-700 text-white px-8 py-4 text-[11px] font-black uppercase tracking-widest hover:bg-[#0a1227] transition-all duration-300 shadow-lg">
+                  <button className="bg-red-700 text-white px-8 py-4 text-[11px] font-black uppercase tracking-widest hover:bg-[#0a1227] transition-all shadow-lg">
                     Send Now
                   </button>
-                </div>
-                <div className="relative min-h-[300px] hidden md:block">
-                  <img
+                </form>
+                <div className="relative hidden md:block">
+                  <Image
                     src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769266055/contact-hand_frwyrz.png"
-                    alt="Contact"
-                    className="absolute inset-0 w-full h-full object-cover"
+                    alt="Contact hands"
+                    fill
+                    className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-red-900/10 transition-all"></div>
+                  <div className="absolute inset-0 bg-red-900/10" />
                 </div>
               </div>
             </FadeUp>

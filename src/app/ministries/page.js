@@ -45,12 +45,20 @@ const ministries = [
       "Taking the gospel beyond our walls through local service and global outreach.",
   },
   {
-    title: "Family Ministry",
-    slug: "family",
+    title: "Married's Ministry",
+    slug: "married",
     icon: <Heart size={30} />,
-    image: "/ministry-family.png",
+    image: "/ministry-married.png",
     excerpt:
       "Building strong homes through fellowship, counseling, and spiritual support.",
+  },
+  {
+    title: "Women Ministry",
+    slug: "womens",
+    icon: <Users size={30} />,
+    image: "/ministry-family.png",
+    excerpt:
+      "Supporting families in their journey of faith and growth.",
   },
 ];
 
