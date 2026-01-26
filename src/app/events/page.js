@@ -124,7 +124,7 @@ export default function EventsPage() {
         <div className="absolute inset-0 overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-[10000ms] ease-out scale-110 animate-slow-zoom"
-            style={{ backgroundImage: "url('/church-events.png')" }}
+            style={{ backgroundImage: "url('https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769436010/church-events_nacqjh.png')" }}
           >
             <div className="absolute inset-0 bg-[#0a1227]/50"></div>
           </div>
@@ -224,7 +224,7 @@ export default function EventsPage() {
       {/* Join Community Parallax */}
       <section
         className="relative h-[80vh] flex items-center justify-center bg-fixed bg-cover bg-center overflow-hidden"
-        style={{ backgroundImage: "url('/community-bg.png')" }}
+        style={{ backgroundImage: "url('https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769436072/community-bg_avserd.png')" }}
       >
         <div className="absolute inset-0 bg-[#0a1227]/40"></div>
         <div className="relative z-10 w-[90%] max-w-5xl border border-white/30 px-6 py-16 md:py-24 text-center text-white backdrop-blur-[2px]">

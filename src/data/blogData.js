@@ -27,7 +27,7 @@ export const blogPosts = [
     date: "OCT 21, 2019",
     author: "Admin",
     comments: 5,
-    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769433827/Giving_Back_Uganda_Training_Centers_dxff8w.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769433840/Spirit_Of_The_Lord_Is_From_The_New_Life_vzeihe.png",
     category: "Faithful",
     quote: "Where the Spirit of the Lord is, there is freedom.",
     content: [

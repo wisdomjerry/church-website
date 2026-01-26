@@ -32,7 +32,7 @@ export default function BlogPage() {
         <div className="absolute inset-0 overflow-hidden bg-[#0a1227]">
           <div
             className="absolute inset-0 opacity-40 bg-cover bg-center transition-transform duration-[10000ms] ease-out scale-110 animate-slow-zoom"
-            style={{ backgroundImage: "url('/blog-header-bg.png')" }}
+            style={{ backgroundImage: "url('https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769434636/blog-header-bg_sbmyf9.png')" }}
           ></div>
         </div>
 

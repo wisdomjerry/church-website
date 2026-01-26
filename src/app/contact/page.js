@@ -11,7 +11,7 @@ export default function ContactPage() {
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-[10000ms] ease-out scale-110 animate-slow-zoom"
             style={{
-              backgroundImage: "url('/church-contact.png')",
+              backgroundImage: "url('https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769435640/church-contact_skd6vc.png')",
               backgroundRepeat: "no-repeat",
             }}
           >

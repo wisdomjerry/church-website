@@ -16,7 +16,7 @@ const ministries = [
     title: "Children's Ministry",
     slug: "children",
     icon: <Baby size={30} />,
-    image: "/ministry-1.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769425461/hero-bg_z1lish.png",
     excerpt:
       "Nurturing the next generation in a fun, safe, and Christ-centered environment.",
   },
@@ -24,7 +24,7 @@ const ministries = [
     title: "Worship & Arts",
     slug: "worship",
     icon: <Music size={30} />,
-    image: "/ministry-2.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769428710/Worship_Hero_l55ji4.png",
     excerpt:
       "Leading the congregation into God's presence through music and creative expression.",
   },
@@ -32,7 +32,7 @@ const ministries = [
     title: "Youth Fellowship",
     slug: "youth",
     icon: <Users size={30} />,
-    image: "/ministry-3.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769424371/ministry-3_ndb1gf.png",
     excerpt:
       "Empowering young people to live boldly for Christ in today's world.",
   },
@@ -40,7 +40,7 @@ const ministries = [
     title: "Global Missions",
     slug: "missions",
     icon: <Globe size={30} />,
-    image: "/ministry-4.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769420255/global_o8y8jh.png",
     excerpt:
       "Taking the gospel beyond our walls through local service and global outreach.",
   },
@@ -48,7 +48,7 @@ const ministries = [
     title: "Married's Ministry",
     slug: "married",
     icon: <Heart size={30} />,
-    image: "/ministry-married.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769427589/married-hero_uib5mh.png",
     excerpt:
       "Building strong homes through fellowship, counseling, and spiritual support.",
   },
@@ -56,7 +56,7 @@ const ministries = [
     title: "Women Ministry",
     slug: "womens",
     icon: <Users size={30} />,
-    image: "/ministry-family.png",
+    image: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769426691/pattern_leq5tv.png",
     excerpt:
       "Supporting families in their journey of faith and growth.",
   },
@@ -218,14 +218,14 @@ export default function MinistriesPage() {
             <div className="space-y-4">
               <div className="h-[400px] overflow-hidden rounded-sm shadow-lg">
                 <img
-                  src="/church-stat-1.jpg"
+                  src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769441803/Church_Interior_g5pd12.png"
                   alt="Church Interior"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
               <div className="h-[250px] overflow-hidden rounded-sm shadow-lg">
                 <img
-                  src="/church-stat-2.jpg"
+                  src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769441802/Worship_a6hewf.png"
                   alt="Worship"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
@@ -234,14 +234,14 @@ export default function MinistriesPage() {
             <div className="space-y-4 pt-12">
               <div className="h-[250px] overflow-hidden rounded-sm shadow-lg">
                 <img
-                  src="/church-stat-3.jpg"
+                  src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769441802/Preaching_kzlvl5.png"
                   alt="Preaching"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
               <div className="h-[400px] overflow-hidden rounded-sm shadow-lg">
                 <img
-                  src="/church-stat-4.jpg"
+                  src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769441804/Prayer_ykh98j.png"
                   alt="Prayer"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
@@ -331,7 +331,7 @@ export default function MinistriesPage() {
             {/* Row 1: Large Featured Wide Photos */}
             <div className="lg:col-span-3 h-[400px] overflow-hidden group rounded-sm shadow-md relative">
               <img
-                src="/gallery-1.jpg"
+                src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769441803/Moments_of_Faith_1_yxphyh.png"
                 alt="Moments of Faith 1"
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />
@@ -340,7 +340,7 @@ export default function MinistriesPage() {
 
             <div className="lg:col-span-3 h-[400px] overflow-hidden group rounded-sm shadow-md relative">
               <img
-                src="/gallery-2.jpg"
+                src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769441803/Moments_of_Faith_2_ecurw4.png"
                 alt="Moments of Faith 2"
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />
@@ -350,7 +350,7 @@ export default function MinistriesPage() {
             {/* Row 2: Smaller Supporting Photos */}
             <div className="lg:col-span-2 h-[350px] overflow-hidden group rounded-sm shadow-md relative">
               <img
-                src="/gallery-3.jpg"
+                src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769441802/Moments_of_Faith_3_ob9x0o.png"
                 alt="Moments of Faith 3"
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />
@@ -358,7 +358,7 @@ export default function MinistriesPage() {
 
             <div className="lg:col-span-2 h-[350px] overflow-hidden group rounded-sm shadow-md relative">
               <img
-                src="/gallery-4.jpg"
+                src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769441803/Moments_of_Faith_4_mul0li.png"
                 alt="Moments of Faith 4"
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />
@@ -366,7 +366,7 @@ export default function MinistriesPage() {
 
             <div className="lg:col-span-2 h-[350px] overflow-hidden group rounded-sm shadow-md relative">
               <img
-                src="/gallery-5.jpg"
+                src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769441803/Moments_of_Faith_5_nxbvlr.png"
                 alt="Moments of Faith 5"
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />
