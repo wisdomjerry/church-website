@@ -88,7 +88,7 @@ export default function Footer() {
             <div className="flex gap-4 group cursor-pointer">
               <div className="w-16 h-16 bg-gray-800 shrink-0 overflow-hidden">
                 <img
-                  src="/church-interior.png"
+                  src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769433827/Giving_Back_Uganda_Training_Centers_dxff8w.png"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
@@ -104,7 +104,7 @@ export default function Footer() {
             <div className="flex gap-4 group cursor-pointer">
               <div className="w-16 h-16 bg-gray-800 shrink-0 overflow-hidden">
                 <img
-                  src="/music.png"
+                  src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769433840/Spirit_Of_The_Lord_Is_From_The_New_Life_vzeihe.png"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
