@@ -28,6 +28,8 @@ export default function Navbar() {
 
   useEffect(() => {
     setIsOpen(false);
+    // Optional: close dropdown when path changes
+    setIsMinistriesOpen(false);
   }, [pathname]);
 
   const menuItems = [
@@ -51,7 +53,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 w-full z-[100]">
-      {/* Desktop Top Bar */}
+      {/* 1. Desktop Top Bar */}
       {!isSticky && (
         <div className="hidden lg:flex bg-black/20 backdrop-blur-md text-white py-2 px-6 justify-between items-center border-b border-white/10 transition-all">
           <div className="flex gap-4 text-[10px] font-bold tracking-widest uppercase">
@@ -69,7 +71,7 @@ export default function Navbar() {
         </div>
       )}
 
-      {/* Main Navigation Row */}
+      {/* 2. Main Navigation Row */}
       <nav className={`transition-all duration-500 border-b ${
           isSticky ? "bg-white/95 backdrop-blur-lg border-gray-100 shadow-lg py-2" : "bg-black/10 backdrop-blur-sm border-white/5 py-4"
         }`}>
@@ -97,7 +99,6 @@ export default function Navbar() {
                   {item.hasDropdown && <Plus size={12} className="group-hover/item:rotate-180 transition-transform" />}
                 </Link>
 
-                {/* DESKTOP DROPDOWN */}
                 {item.hasDropdown && (
                   <div className="absolute top-full left-0 pt-4 opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-300 transform translate-y-2 group-hover/item:translate-y-0">
                     <div className="bg-white shadow-2xl border border-gray-100 min-w-[220px] py-4 rounded-sm">
@@ -129,34 +130,59 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* --- SIDE DRAWER (MOBILE) --- */}
+      {/* 3. SIDE DRAWER (MOBILE) */}
       <div className={`fixed inset-0 w-full h-full lg:hidden transition-all duration-500 ${isOpen ? "visible" : "invisible"}`} style={{ zIndex: 115 }}>
         <div className={`absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-500 ${isOpen ? "opacity-100" : "opacity-0"}`} onClick={() => setIsOpen(false)} />
         <div className={`absolute top-0 right-0 w-[85%] max-w-sm h-full bg-white transition-transform duration-500 ease-out shadow-2xl flex flex-col ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
           <div className="p-8 pt-32 overflow-y-auto flex-1">
             <nav className="flex flex-col space-y-1">
               {menuItems.map((item) => {
+                // SPECIAL HANDLING FOR MINISTRIES WITH DROPDOWN
                 if (item.name === "Ministries") {
                   return (
                     <div key={item.name} className="py-2 border-b border-gray-50">
-                      <button onClick={() => setIsMinistriesOpen(!isMinistriesOpen)} className="flex justify-between items-center w-full py-2 text-gray-900 font-black uppercase text-sm tracking-widest">
-                        {item.name}
-                        {isMinistriesOpen ? <Minus size={14} className="text-red-700" /> : <Plus size={14} className="text-red-700" />}
-                      </button>
-                      <div className={`overflow-hidden transition-all duration-300 ${isMinistriesOpen ? "max-h-[300px] mt-2 opacity-100" : "max-h-0 opacity-0"}`}>
-                        <div className="flex flex-col pl-4 border-l-2 border-red-700/20 space-y-3 pb-4 mt-2">
+                      <div className="flex justify-between items-center w-full">
+                        {/* THE WORD: Links to main page */}
+                        <Link 
+                          href={item.href} 
+                          onClick={() => setIsOpen(false)}
+                          className={`py-2 text-gray-900 font-black uppercase text-sm tracking-widest hover:text-red-700 transition-colors ${pathname.startsWith(item.href) ? "text-red-700" : ""}`}
+                        >
+                          {item.name}
+                        </Link>
+                        
+                        {/* THE ICON: Toggles dropdown only */}
+                        <button 
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setIsMinistriesOpen(!isMinistriesOpen);
+                          }}
+                          className="p-3 -mr-3" 
+                        >
+                          {isMinistriesOpen ? <Minus size={18} className="text-red-700" /> : <Plus size={18} className="text-red-700" />}
+                        </button>
+                      </div>
+
+                      {/* DROPDOWN LINKS */}
+                      <div className={`overflow-hidden transition-all duration-300 ${isMinistriesOpen ? "max-h-[400px] mt-2 opacity-100" : "max-h-0 opacity-0"}`}>
+                        <div className="flex flex-col pl-4 border-l-2 border-red-700/20 space-y-4 pb-4 mt-2">
                           {ministries.map((sub) => (
-                            <Link key={sub.name} href={sub.href} className="text-gray-500 text-sm hover:text-red-700 font-bold transition-colors">
+                            <Link key={sub.name} href={sub.href} onClick={() => setIsOpen(false)} className="text-gray-500 text-sm hover:text-red-700 font-bold transition-colors">
                               {sub.name}
                             </Link>
                           ))}
+                          <Link href="/ministries" onClick={() => setIsOpen(false)} className="text-red-700 text-[10px] font-black uppercase tracking-widest pt-2 flex items-center gap-1">
+                            View All Ministries <ChevronRight size={10} />
+                          </Link>
                         </div>
                       </div>
                     </div>
                   );
                 }
+
+                // STANDARD LINKS
                 return (
-                  <Link key={item.name} href={item.href} className={`py-4 border-b border-gray-50 text-gray-900 font-black uppercase text-sm tracking-widest flex justify-between items-center hover:text-red-700 transition-colors ${pathname === item.href ? "text-red-700" : ""}`}>
+                  <Link key={item.name} href={item.href} onClick={() => setIsOpen(false)} className={`py-4 border-b border-gray-50 text-gray-900 font-black uppercase text-sm tracking-widest flex justify-between items-center hover:text-red-700 transition-colors ${pathname === item.href ? "text-red-700" : ""}`}>
                     {item.name}
                     <ChevronRight size={14} className="opacity-30" />
                   </Link>
@@ -164,11 +190,12 @@ export default function Navbar() {
               })}
             </nav>
             <div className="mt-10">
-              <Link href="/donate" className="block w-full bg-red-700 text-white text-center py-4 rounded-sm font-black uppercase text-xs tracking-widest hover:bg-gray-900 transition shadow-lg">
+              <Link href="/donate" onClick={() => setIsOpen(false)} className="block w-full bg-red-700 text-white text-center py-4 rounded-sm font-black uppercase text-xs tracking-widest hover:bg-gray-900 transition shadow-lg">
                 Donate Online
               </Link>
             </div>
           </div>
+          {/* Footer of the Drawer */}
           <div className="p-8 bg-gray-50 border-t border-gray-100">
             <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-4">Follow Us</p>
             <div className="flex gap-6 text-gray-400">
