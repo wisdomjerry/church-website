@@ -43,7 +43,7 @@ export default function DonatePage() {
         <div className="absolute inset-0 overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center opacity-40 animate-slow-zoom"
-            style={{ backgroundImage: "url('/church-interior.png')" }}
+            style={{ backgroundImage: "url('https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769495427/donate_ghjwxq.png')" }}
           ></div>
           {/* Dark Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0a1227]/80"></div>

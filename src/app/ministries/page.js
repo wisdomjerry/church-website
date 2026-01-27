@@ -88,7 +88,7 @@ export default function MinistriesPage() {
         <div className="absolute inset-0 overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center animate-slow-zoom"
-            style={{ backgroundImage: "url('/ministry-hero.png')" }}
+            style={{ backgroundImage: "url('https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769495112/ministry-hero_ttbvjg.png')" }}
           ></div>
           <div className="absolute inset-0 bg-[#0a1227]/50"></div>
         </div>
