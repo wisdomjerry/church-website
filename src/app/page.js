@@ -220,7 +220,7 @@ export default function Home() {
         <FeatureCards />
 
         {/* ABOUT SECTION */}
-        <section id="about" className="py-24 px-4">
+        <section id="about" className="py-24 px-4"> 
           <FadeUp>
             <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
               <div className="relative h-[500px] w-full overflow-hidden rounded-xl shadow-2xl">
@@ -330,7 +330,7 @@ export default function Home() {
           <div
             className="relative h-[500px] flex flex-col items-center justify-start pt-20 bg-cover bg-center bg-fixed"
             style={{
-              backgroundImage: "url('/church-interior.png')",
+              backgroundImage: "url('https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769586443/get_in_touch_wq6jbn.png')",
               clipPath: "polygon(0 0, 100% 0, 100% 85%, 0% 100%)",
             }}
           >
