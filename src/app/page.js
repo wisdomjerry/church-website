@@ -330,7 +330,7 @@ export default function Home() {
           <div
             className="relative h-[500px] flex flex-col items-center justify-start pt-20 bg-cover bg-center bg-fixed"
             style={{
-              backgroundImage: "url('https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769586443/get_in_touch_wq6jbn.png')",
+              backgroundImage: "url('https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769587102/get_in_touch_wq6jbn.png')",
               clipPath: "polygon(0 0, 100% 0, 100% 85%, 0% 100%)",
             }}
           >
