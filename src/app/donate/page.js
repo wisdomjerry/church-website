@@ -38,7 +38,7 @@ export default function DonatePage() {
   return (
     <main className="min-h-screen bg-white">
       {/* --- HERO SECTION --- */}
-      <section className="relative h-[50vh] flex items-center justify-center bg-[#0a1227]">
+      <section className="relative h-[60vh] flex items-center justify-center bg-[#0a1227]">
         {/* BACKGROUND LAYER */}
         <div className="absolute inset-0 overflow-hidden">
           <div
