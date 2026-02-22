@@ -60,17 +60,19 @@ export default function Footer() {
           </div>
           <ul className="space-y-4 text-sm text-gray-400">
             {[
-              "Who We Are?",
-              "Support And FAQ's",
-              "Payments",
-              "Donations Terms",
-              "Volunteer",
+              { label: "Who We Are?", href: "/who-we-are" },
+              { label: "Support And FAQ's", href: "/support-faqs" },
+              { label: "Payments", href: "/payments" },
+              { label: "Donations Terms", href: "/donations-terms" },
+              { label: "Volunteer", href: "/volunteer" },
             ].map((link) => (
               <li
-                key={link}
+                key={link.href}
                 className="footer-link-star hover:text-white cursor-pointer transition-colors flex items-center"
               >
-                {link}
+                <Link href={link.href} className="hover:text-white transition-colors">
+                  {link.label}
+                </Link>
               </li>
             ))}
           </ul>
@@ -110,10 +112,10 @@ export default function Footer() {
               </div>
               <div>
                 <h5 className="text-[13px] font-bold group-hover:text-red-700 transition-colors">
-                  Spirit Of The Lord Is From The New Life
+                  Come to God miracle Crusade 
                 </h5>
                 <p className="text-[10px] text-gray-500 mt-1 uppercase">
-                  Oct 21, 2019
+                 Starting Feb 23, 2026
                 </p>
               </div>
             </div>
