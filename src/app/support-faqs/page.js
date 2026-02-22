@@ -206,7 +206,7 @@ export default function SupportFAQPage() {
                 icon={Phone}
                 title="Phone Support"
                 content="Call us Monday-Friday, 9 AM - 5 PM"
-                link="tel:+256-XXX-XXXX"
+                link="tel:+256703886422"
               />
               <ContactCard
                 icon={MessageSquare}
@@ -345,7 +345,7 @@ export default function SupportFAQPage() {
                   <ul className="space-y-3 text-sm text-gray-600">
                     <li>
                       <p className="font-bold text-gray-900">Phone</p>
-                      <p>+256-XXX-XXXX</p>
+                      <p>+256 703 886422</p>
                     </li>
                     <li>
                       <p className="font-bold text-gray-900">Email</p>

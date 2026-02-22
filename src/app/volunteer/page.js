@@ -405,7 +405,7 @@ export default function VolunteerPage() {
                       </label>
                       <input
                         type="tel"
-                        placeholder="+256-XXX-XXXX"
+                        placeholder="+256 703 886422"
                         className="w-full border-b border-gray-300 py-3 outline-none focus:border-red-700 transition-colors text-sm font-light"
                       />
                     </div>
@@ -471,8 +471,8 @@ export default function VolunteerPage() {
               <div className="mt-8 text-center">
                 <p className="text-gray-600 text-sm">
                   Have questions? Contact our volunteer coordinator at
-                  <Link href="mailto:volunteers@faithharvestchurch.com" className="text-red-700 font-bold ml-1 hover:text-red-900">
-                    volunteers@faithharvestchurch.com
+                  <Link href="mailto:christianfaithharvestchurch@gmail.com" className="text-red-700 font-bold ml-1 hover:text-red-900">
+                    christianfaithharvestchurch@gmail.com
                   </Link>
                 </p>
               </div>

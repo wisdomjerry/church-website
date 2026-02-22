@@ -17,7 +17,7 @@ export default function Footer() {
           <div className="flex items-center gap-2 mb-6">
             <Plus className="text-red-700" size={18} strokeWidth={3} />
             <h4 className="text-lg font-black uppercase tracking-widest">
-              About Christain Faith Harvest Church
+              About Christian Faith Harvest Church
             </h4>
           </div>
           <p className="text-gray-400 text-sm leading-relaxed mb-8">
