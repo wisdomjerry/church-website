@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import FadeUp from "../components/FadeUp";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -25,6 +26,11 @@ export default function AboutPage() {
       name: "Bishop Israel Baguma",
       role: "Senior Pastor",
       img: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769348191/pastor-bishop_qz7zxj.jpg",
+    },
+    {
+      name: "Rev Florence Christine Baguma",
+      role: "Reverend Pastor",
+      img: "https://res.cloudinary.com/dnxnr4ocz/image/upload/v1771072553/IMG-20260131-WA0019_1_bwvl94.jpg",
     },
     {
       name: "Pr Matthew",
@@ -126,8 +132,8 @@ export default function AboutPage() {
                 <div className="w-3 h-1 bg-red-700"></div>
               </div>
               <p className="text-gray-500 leading-relaxed text-sm italic border-l-4 border-red-700 pl-4">
-                "Our mission is to bring hope, love, and spiritual growth to our
-                community through worship and service."
+                &quot;Our mission is to bring hope, love, and spiritual growth to our
+                community through worship and service.&quot;
               </p>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
                 {[
@@ -225,6 +231,7 @@ export default function AboutPage() {
 
             {/* Mobile Image */}
             <div className="lg:hidden flex justify-center">
+              
               <img
                 src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769348191/pastor-bishop_qz7zxj.jpg"
                 alt="Pastor"

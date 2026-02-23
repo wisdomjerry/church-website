@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React from "react";
 import {
@@ -34,7 +35,7 @@ export default function ChildrensMinistry() {
     <main className="bg-white min-h-screen">
       {/* 1. HERO SECTION WITH DARK OVERLAY */}
       <section className="relative h-[60vh] bg-[#0a1227] flex flex-col items-center justify-center text-white">
-        <div className="absolute inset-0 opacity-40 bg-[url('https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769425461/hero-bg_z1lish.png')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 opacity-40 bg-[url('https://res.cloudinary.com/dnxnr4ocz/image/upload/v1771072939/20260208_115937_niiosh.jpg')] bg-cover bg-center"></div>
 
         <div className="relative top-5 z-10 text-center">
           <nav className="flex items-center justify-center gap-2 text-[10px] uppercase tracking-widest mb-4">
@@ -42,10 +43,10 @@ export default function ChildrensMinistry() {
             <ChevronRightCircleIcon size={10} />
             <span className="text-red-600">Our Ministry</span>
             <ChevronRightCircleIcon size={10} />
-            <span>Children's Ministry</span>
+            <span>Children&apos;s Ministry</span>
           </nav>
           <h1 className="text-4xl md:text-5xl font-bold font-serif">
-            Children's Ministry
+            Children&apos;s Ministry
           </h1>
         </div>
 
@@ -64,12 +65,12 @@ export default function ChildrensMinistry() {
         {/* LEFT CONTENT AREA */}
         <div className="lg:col-span-8 space-y-8">
           <h2 className="text-3xl font-serif text-gray-900 font-bold">
-            Children's Ministry
+            Children&apos;s Ministry
           </h2>
 
           <div className="rounded-sm overflow-hidden shadow-sm">
             <img
-              src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769425555/Child_praying_dzsh5k.png"
+              src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1771072799/20260208_115955_yfa493.jpg"
               alt="Child praying"
               className="w-full h-[450px] object-cover"
             />
@@ -77,7 +78,7 @@ export default function ChildrensMinistry() {
 
           <div className="prose prose-gray max-w-none text-gray-600 leading-relaxed">
             <p>
-              Children's ministry is the most important ministry in our church.
+              Children&apos;s ministry is the most important ministry in our church.
               This ministry helps kids learn about the Lord Jesus and how to
               start a personal relational growth. Children come to faith in
               Jesus through Primary voices, Bible lessons, Singing, and Prayer.
@@ -95,17 +96,17 @@ export default function ChildrensMinistry() {
           {/* Bottom Gallery Grid */}
           <div className="grid grid-cols-3 gap-4 pt-8">
             <img
-              src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769425460/child-3_orbnty.png"
+              src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1771072934/20260208_120025_tsg6rr.jpg"
               className="h-40 w-full object-cover rounded-sm"
               alt="Ministry 1"
             />
             <img
-              src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769425460/child-2_d8zisx.png"
+              src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1771072926/20260208_121409_ocbtgc.jpg"
               className="h-40 w-full object-cover rounded-sm"
               alt="Ministry 2"
             />
             <img
-              src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1769425723/child-1_sqnu1a.png"
+              src="https://res.cloudinary.com/dnxnr4ocz/image/upload/v1771072654/20260208_121412_1_qvcxru.jpg"
               className="h-40 w-full object-cover rounded-sm"
               alt="Ministry 3"
             />
